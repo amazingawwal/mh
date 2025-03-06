@@ -1,9 +1,10 @@
-"use client"; // Required for Next.js (if using App Router)
+"use client"; 
 
 import { useEffect, useRef } from "react";
+import Image from "next/image";
 
 const AutoPlayCarousel = () => {
-  const carouselRef = useRef(null);
+  const carouselRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -23,50 +24,46 @@ const AutoPlayCarousel = () => {
     return () => clearInterval(interval); // Cleanup on unmount
   }, []);
 
+type User = {src:string,
+    id:number,
+    alt:string}
+
+const images : User[] = [
+    {
+        src:'/masjid.jpg',
+        id:1,
+        alt:'Masjid'
+    },
+    {
+        src:"/Qur'an.jpg",
+        id:2,
+        alt:"Qur'an"
+    },
+    {
+        src:"/sujud.jpg",
+        id:3,
+        alt:"sajdah"
+    }
+]
+
   return (
     <div className="carousel rounded-box overflow-x-auto scroll-smooth flex" ref={carouselRef}>
-      <div className="carousel-item">
-        <img
-          src="https://img.daisyui.com/images/stock/photo-1559703248-dcaaec9fab78.webp"
-          alt="Burger"
-        />
-      </div>
-      <div className="carousel-item">
-        <img
-          src="https://img.daisyui.com/images/stock/photo-1565098772267-60af42b81ef2.webp"
-          alt="Burger"
-        />
-      </div>
-      <div className="carousel-item">
-        <img
-          src="https://img.daisyui.com/images/stock/photo-1572635148818-ef6fd45eb394.webp"
-          alt="Burger"
-        />
-      </div>
-      <div className="carousel-item">
-        <img
-          src="https://img.daisyui.com/images/stock/photo-1494253109108-2e30c049369b.webp"
-          alt="Burger"
-        />
-      </div>
-      <div className="carousel-item">
-        <img
-          src="https://img.daisyui.com/images/stock/photo-1550258987-190a2d41a8ba.webp"
-          alt="Burger"
-        />
-      </div>
-      <div className="carousel-item">
-        <img
-          src="https://img.daisyui.com/images/stock/photo-1559181567-c3190ca9959b.webp"
-          alt="Burger"
-        />
-      </div>
-      <div className="carousel-item">
-        <img
-          src="https://img.daisyui.com/images/stock/photo-1601004890684-d8cbf643f5f2.webp"
-          alt="Burger"
-        />
-      </div>
+      
+      {images.map(
+        (image)=>(
+            <div  key={image.id} className="carousel-item">
+            <Image
+              src={image.src}
+              alt={image.alt}
+              width={300}
+              height={100}
+              sizes="(max-width: 768px) 100vw, 700px"
+              
+
+            />
+            </div>
+        )
+      )}
     </div>
   );
 };

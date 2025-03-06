@@ -1,9 +1,9 @@
-function Users (){
-    return(
-        <>
-            <p>Awwal</p>
-        </>
-    )
-};
+import React from 'react'
 
-export default Users;
+function Users() {
+  return (
+    <div>Users</div>
+  )
+}
+
+export default Users
