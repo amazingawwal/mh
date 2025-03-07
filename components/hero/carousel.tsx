@@ -43,6 +43,26 @@ const images : User[] = [
         src:"/sujud.jpg",
         id:3,
         alt:"sajdah"
+    },
+    {
+        src:"/Quran2.jpg",
+        id:4,
+        alt:"Al Qur'an"
+    },
+    {
+        src:"/lamp.jpg",
+        id:5,
+        alt:"praying lamp"
+    },
+    {
+        src:"/praying_mat.jpg",
+        id:6,
+        alt:"Praying mat"
+    },
+    {
+        src:"/men_at_mosque.jpg",
+        id:7,
+        alt:"Men at Masjid"
     }
 ]
 
