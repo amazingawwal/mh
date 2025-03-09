@@ -43,7 +43,7 @@ export default function Navbar (){
     <ul className="menu menu-horizontal px-4 space-x-6 text-lg font-semibold text-gray-700">
         <li><Link href="/" className="hover:text-blue-500">Home</Link></li>
         <li><Link href="/" className="hover:text-blue-500">Dua</Link></li>
-        <li><Link href="/" className="hover:text-blue-500">Al-Qur'an</Link></li>
+        <li><Link href="/" className="hover:text-blue-500">Al-Qur&apos;an</Link></li>
         <li><Link href="/" className="hover:text-blue-500">Hadith</Link></li>
         <li><Link href="/" className="hover:text-blue-500">Blog</Link></li>
         <li><Link href="/" className="hover:text-blue-500">Vendor</Link></li>

@@ -2,7 +2,7 @@ import React from 'react'
 import Image from 'next/image'
 
 interface Article  {
-  title : String,
+  title : string,
   description: string,
   src:string,
   alt:string,

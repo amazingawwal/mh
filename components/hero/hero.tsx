@@ -3,7 +3,7 @@ import Card from "../card/card";
 
 export default function Hero (){
     type Article = {
-        title : String,
+        title : string,
         description: string,
         src:string,
         alt:string,
@@ -26,7 +26,15 @@ export default function Hero (){
       alt:'zakat',
       id: 2,
       bg:'bg-pink-50'
-    }
+    },
+    {
+        title : 'Hajj',
+        description : "Zakat is not just a duty; it is a blessing that purifies wealth, helps the less fortunate, and brings immense rewards.🤲✨",
+        src:'/icons8.png',
+        alt:'Hajj',
+        id: 3,
+        bg:'bg-rose-50'
+      }
   ]
     return(
         <section className="flex p-5">
