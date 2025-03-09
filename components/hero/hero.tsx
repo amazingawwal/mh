@@ -38,8 +38,8 @@ export default function Hero (){
   ]
     return(
         <section className="flex p-5">
-            <aside className="basis-1/4">
-                <h3 className="">Articles</h3>
+            <aside className=" hidden lg:block basis-1/3">
+                <h3 className="pb-2">Important Articles</h3>
                 {articles.map(article=>(
                     <Card title={article.title} 
                           description={article.description}
@@ -50,7 +50,7 @@ export default function Hero (){
                           bg={article.bg} />
                 ))}
             </aside>
-            <aside className="basis-3/4">
+            <aside className="basis-4/4">
                 <AutoPlayCarousel/>
             </aside>
         </section>

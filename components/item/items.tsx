@@ -64,10 +64,9 @@ const Items = () => {
         },
     ]
   return (
-    <div>
+    <div className="grid grid-cols-3 sm:grid-cols-2 md:grid-cols-3 gap-4 p-4">
         {items.map(item=>{
            return(
-        <div className="grid grid-cols-3 sm:grid-cols-2 md:grid-cols-3 gap-4 p-4">
             <MainCard key={item.id} 
                       s_title={item.s_title}
                       b_title = {item.b_title}
@@ -75,7 +74,6 @@ const Items = () => {
                       bg={item.bg}
                       alt={item.alt}
                         />
-        </div>
            )
         })}
     </div>

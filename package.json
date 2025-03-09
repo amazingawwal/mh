@@ -9,9 +9,21 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@sanity/client": "^6.28.3",
+    "@sanity/icons": "^3.7.0",
+    "@sanity/image-url": "^1.1.0",
+    "@sanity/vision": "^3.78.1",
     "next": "15.2.0",
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "next-sanity": "^9.9.0",
+    "react": "19.0.0",
+    "react-dom": "19.0.0",
+    "sanity": "^3.78.1",
+    "styled-components": "^6.1.15"
+  },
+  "packageManager": "npm@10.5.2",
+  "overrides": {
+    "react": "$react",
+    "react-dom": "$react-dom"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
