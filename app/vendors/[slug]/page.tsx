@@ -36,17 +36,19 @@ export default async function PostPage(
   params,
 }: 
 {
-  params: Promise<{ slug: string }>;
+  params: { slug: string };
 }
 ) 
 
 {
 //   const post = await client.fetch<SanityDocument>(POST_QUERY, await params, options);
-  const { data: post } = await sanityFetch({ query: POST_QUERY, params: await params});
+  const { data: post } = await sanityFetch({ query: POST_QUERY, params: params});
 
-if (!post) {
+  if (!params?.slug) {
     notFound();
   }
+  
+
   const postImageUrl = post.image
     ? urlFor(post.image)?.width(150).height(50).url()
     : null;
