@@ -1,10 +1,10 @@
-// import { client } from "@/sanity/lib/client";
+
 import Image from "next/image";
 import { client } from "@/sanity/lib/client";
 import { notFound } from "next/navigation";
 
 import Link from "next/link";
-import { type SanityDocument } from "next-sanity";
+
 import { PortableText } from "next-sanity";
 import { sanityFetch } from "@/sanity/lib/live";
 
@@ -54,12 +54,11 @@ if (!post) {
         ← Back to posts
       </Link>
       {postImageUrl && (
-        <img
+        <Image
           src={postImageUrl}
           alt={post.title}
-          className="aspect-video rounded-xl"
-          width='150'
-          height='50'
+          width={150}
+          height={50}
         />
       )}
       <h1 className="text-4xl font-bold mb-8">{post.title}</h1>

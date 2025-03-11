@@ -67,7 +67,8 @@ const Items = () => {
     <div className="grid grid-cols-3 sm:grid-cols-2 md:grid-cols-3 gap-4 p-4">
         {items.map(item=>{
            return(
-            <MainCard key={item.id} 
+            <MainCard key={item.id}
+                      id={item.id} 
                       s_title={item.s_title}
                       b_title = {item.b_title}
                       img = {item.img}

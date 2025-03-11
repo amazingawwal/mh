@@ -2,9 +2,22 @@ import React from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 
-const MainCard = ({s_title, b_title, img, alt, bg}) => {
+
+interface Cards  {
+    s_title : string,
+    b_title : string,
+    description?: string,
+    src?:string,
+    alt:string,
+    id: number,
+    img: string,
+    bg: string,
+    url?: string
+  }
+
+const MainCard:React.FC<Cards> = ({s_title, b_title, img, alt, bg, id}) => {
   return (
-    <div>
+    <div key={id}>
         <Link href={'/'}>
             <div className={`p-2 shadow-md rounded-lg  ${bg}`}>
                 <p className="text-xl font-bold">{s_title}</p>
