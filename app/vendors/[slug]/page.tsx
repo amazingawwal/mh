@@ -1,10 +1,13 @@
 
 import Image from "next/image";
+// import { client } from "@/sanity/lib/client";
+// import Image from "next/image";
 import { client } from "@/sanity/lib/client";
 import { notFound } from "next/navigation";
 
 import Link from "next/link";
 
+// import { type SanityDocument } from "next-sanity";
 import { PortableText } from "next-sanity";
 import { sanityFetch } from "@/sanity/lib/live";
 
