@@ -8,7 +8,8 @@ export default function Hero (){
         src:string,
         alt:string,
         id: number,
-        bg: string
+        bg: string,
+        url: string
     }
 
     const articles : Article[] = [{
@@ -17,7 +18,8 @@ export default function Hero (){
       src:'/icons8.png',
       alt:'Ramadan',
       id: 1,
-      bg:'bg-fuchsia-50'
+      bg:'bg-fuchsia-50',
+      url: '/vendors/ramadan'
     },
     {
       title : 'Zakat',
@@ -25,7 +27,8 @@ export default function Hero (){
       src:'/icons8.png',
       alt:'zakat',
       id: 2,
-      bg:'bg-pink-50'
+      bg:'bg-pink-50',
+      url: '/vendors/zakat'
     },
     {
         title : 'Hajj',
@@ -33,7 +36,8 @@ export default function Hero (){
         src:'/icons8.png',
         alt:'Hajj',
         id: 3,
-        bg:'bg-rose-50'
+        bg:'bg-rose-50',
+      url: '/'
       }
   ]
     return(
@@ -47,7 +51,8 @@ export default function Hero (){
                           alt={article.alt}
                           key={article.id}
                           id={article.id}
-                          bg={article.bg} />
+                          bg={article.bg}
+                          url={article.url} />
                 ))}
             </aside>
             <aside className="basis-4/4">
