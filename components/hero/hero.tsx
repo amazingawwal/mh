@@ -15,7 +15,7 @@ type Article = {
 }
 
 const articles : Article[] = [{
-  title : 'Ramadan',
+  title : 'Ramadan🌙: The Month of Transformation',
   description : "Ramadan is a time of immense blessings, self-improvement, and deepening faith.  🌙✨",
   src:'/ramadan-hero.png',
   alt:'Ramadan',
@@ -24,8 +24,8 @@ const articles : Article[] = [{
   url: '/vendors/ramadan'
 },
 {
-  title : 'Zakat',
-  description : "Zakat is not just a duty; it is a blessing that purifies wealth, helps the less fortunate, and brings immense rewards.🤲✨",
+  title : 'Zakat💛: Purifying Wealth, Elevating Souls',
+  description : "What if true wealth wasn’t about how much you keep, but how much you give?🤲✨",
   src:'/zakat-hero.png',
   alt:'zakat',
   id: 2,
@@ -33,28 +33,28 @@ const articles : Article[] = [{
   url: '/vendors/zakat'
 },
 {
-    title : 'Shahada',
-    description : "Zakat is not just a duty; it is a blessing that purifies wealth, helps the less fortunate, and brings immense rewards.🤲✨",
-    src:'/zakat-hero.png',
-    alt:'zakat',
+    title :'Shahada☝️: The Foundation of Faith',
+    description : "The testimony that there is no god but Allah, and Muhammad (ﷺ) is His Messenger.🤲✨",
+    src:'/shahada-hero.jpg',
+    alt:'shahada',
     id: 3,
-    bg:'bg-pink-50',
+    bg:'bg-violet-50',
     url: '/vendors/zakat'
   },
 {
-    title : 'Salat',
-    description : "Zakat is not just a duty; it is a blessing that purifies wealth, helps the less fortunate, and brings immense rewards.🤲✨",
-    src:'/zakat-hero.png',
-    alt:'zakat',
+    title : 'Salat🕋: The Daily Connection with Allah',
+    description : "It’s more than just movements; it’s a spiritual recharge, a moment of peace in a busy world.🤲✨",
+    src:'/salat-hero.jpg',
+    alt:'salat',
     id: 4,
-    bg:'bg-pink-50',
+    bg:'bg-purple-50',
     url: '/vendors/zakat'
   },  
 {
-    title : 'Hajj',
-    description : "Zakat is not just a duty; it is a blessing that purifies wealth, helps the less fortunate, and brings immense rewards.🤲✨",
+    title : 'Hajj🕋: The Journey of a Lifetime',
+    description : "Standing among millions, with no status or wealth separating you—just you and Allah.🤲✨",
     src:'/hajj-hero.png',
-    alt:'Hajj',
+    alt:'hajj',
     id: 5,
     bg:'bg-rose-50',
   url: '/'
