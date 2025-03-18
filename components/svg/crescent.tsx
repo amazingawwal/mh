@@ -33,9 +33,7 @@ export const Pray: React.FC<React.SVGProps<SVGSVGElement>> = (props) => (
     x="0px"
     y="0px"
     viewBox="0 0 512 512"
-    style={{
-      enableBackground: "new 0 0 512 512",
-    }}
+    enableBackground= "new 0 0 512 512"
     xmlSpace="preserve"
     {...props}
   >
@@ -350,9 +348,7 @@ export const Story: React.FC<React.SVGProps<SVGSVGElement>> = (props) => (
     x="0px"
     y="0px"
     viewBox="0 0 490.858 490.858"
-    style={{
-      enableBackground: "new 0 0 490.858 490.858",
-    }}
+    enableBackground= "new 0 0 490.858 490.858"
     xmlSpace="preserve"
     {...props}
   >
@@ -377,9 +373,7 @@ export const Hadith:React.FC<React.SVGProps<SVGSVGElement>> = (props) => (
     x="0px"
     y="0px"
     viewBox="0 0 460 460"
-    style={{
-      enableBackground: "new 0 0 460 460",
-    }}
+    enableBackground= "new 0 0 460 460"
     xmlSpace="preserve"
     width={512}
     height={512}
@@ -491,9 +485,7 @@ export const Quran:React.FC<React.SVGProps<SVGSVGElement>> = (props) => (
     x="0px"
     y="0px"
     viewBox="0 0 484.228 484.228"
-    style={{
-      enableBackground: "new 0 0 484.228 484.228",
-    }}
+    enableBackground= "new 0 0 484.228 484.228"
     xmlSpace="preserve"
     {...props}
   >
