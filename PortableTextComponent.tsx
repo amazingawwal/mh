@@ -1,6 +1,10 @@
 import Image from "next/image";
 import { PortableTextComponents } from "next-sanity";
 import { urlFor } from "@/sanity/lib/image";
+// import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
+// import { materialDark } from "react-syntax-highlighter/dist/cjs/styles/prism";
+
+  
 
 export const components: PortableTextComponents = {
   types: {
@@ -19,5 +23,23 @@ export const components: PortableTextComponents = {
           height="400"
         />
       ) : null,
+     
+      
   },
+  
 };
+
+
+
+// import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
+// import { materialDark } from "react-syntax-highlighter/dist/cjs/styles/prism";
+
+// export const components: PortableTextComponents = {
+//   types: {
+//     code: ({ value }: { value: { language: string; code: string } }) => (
+//       <SyntaxHighlighter language={value.language || "javascript"} style={materialDark}>
+//         {value.code}
+//       </SyntaxHighlighter>
+//     ),
+//   },
+// };

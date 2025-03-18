@@ -15,13 +15,12 @@ interface Article  {
 
 const Card: React.FC<Article> = ({title, description, src, alt, id, bg, url}) => {
   return(
-    <div key={id} className={`flex card lg:card-side mb-2 mr-2 ${bg} shadow-sm`}>
+    <div key={id} className={`flex card lg:card-side mb-2 mr-2 ${bg} shadow-sm h-36`}>
           <figure className='  basis-1/3 basis-1/3'>
             <Image
               className='hidden md:flex'
-              height={5}
-              width={10}
-              layout='intrinsic'
+              height={10}
+              width={100}
               src={src}
               alt={alt} />
           </figure>

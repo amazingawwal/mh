@@ -72,5 +72,74 @@ export const blockContentType = defineType({
         }
       ]
     }),
+
+    // video
+    defineArrayMember({
+      type: 'object',
+      name: 'videoEmbed',
+      title: 'Video Embed',
+      fields: [
+        {
+          name: 'url',
+          type: 'url',
+          title: 'Video URL',
+          description: 'Supports YouTube, Vimeo, etc.',
+          validation: (Rule) =>
+            Rule.uri({
+              scheme: ['http', 'https'],
+            }),
+        },
+      ],
+    }),
+    
+
+    // code
+    defineArrayMember({
+      type: 'object',
+      name: 'codeBlock',
+      title: 'Code Block',
+      fields: [
+        {
+          name: 'code',
+          type: 'text',
+          title: 'Code',
+          options: {
+            language: 'javascript',
+            languages: ['javascript', 'python', 'html', 'css', 'typescript'],
+          },
+        },
+      ],
+    }),
+    
+
+    // callout block-custom alert
+
+    // defineArrayMember({
+    //   type: 'object',
+    //   name: 'callout',
+    //   title: 'Callout',
+    //   fields: [
+    //     {
+    //       name: 'type',
+    //       type: 'string',
+    //       title: 'Type',
+    //       options: {
+    //         list: [
+    //           { title: 'Info', value: 'info' },
+    //           { title: 'Warning', value: 'warning' },
+    //           { title: 'Success', value: 'success' },
+    //         ],
+    //       },
+    //     },
+    //     {
+    //       name: 'content',
+    //       type: 'text',
+    //       title: 'Content',
+    //     },
+    //   ],
+    // }),
+    
+    
+
   ],
 })
