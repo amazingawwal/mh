@@ -1,6 +1,6 @@
-import React from 'react'
+import React, { ReactElement } from 'react'
 import Link from 'next/link'
-import Image from 'next/image'
+
 
 
 interface Cards  {
@@ -8,21 +8,22 @@ interface Cards  {
     b_title : string,
     description?: string,
     src?:string,
-    alt:string,
+    alt?:string,
     id: number,
-    img: string,
+    img: ReactElement,
     bg: string,
-    url?: string
+    url: string
   }
 
-const MainCard:React.FC<Cards> = ({s_title, b_title, img, alt, bg, id}) => {
+const MainCard:React.FC<Cards> = ({s_title, b_title, img, url, bg, id}) => {
   return (
     <div key={id}>
-        <Link href={'/'}>
-            <div className={`p-2 shadow-md rounded-lg  ${bg}`}>
-                <p className="text-xl font-bold">{s_title}</p>
-                <p>{b_title}</p>
-                <Image width={40} height={7} alt={alt} src={img}/>
+        <Link href={url}>
+            <div className={`p-2 shadow-md rounded-lg flex justify-center items-center h-25 ${bg}`}>
+                <p >{s_title} <span className="text-xl sm:text-lg font-bold" >{b_title}</span></p>
+                
+                {img}
+                {/* <Image width={40} height={7} alt={alt} src={img}/> */}
             </div>
         </Link>
     </div>

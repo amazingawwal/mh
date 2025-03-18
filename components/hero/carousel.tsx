@@ -73,14 +73,12 @@ const images : User[] = [
         (image)=>(
             <div  key={image.id} className="carousel-item">
             <Image
+              className="w-auto h-auto " 
               src={image.src}
               alt={image.alt}
             //   layout="responsive"
               width={300}
               height={150}
-              sizes="(max-width: 768px) 100vw, 700px"
-              
-
             />
             </div>
         )

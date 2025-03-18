@@ -131,6 +131,14 @@ export type Post = {
     alt?: string;
     _type: "image";
     _key: string;
+  } | {
+    url?: string;
+    _type: "videoEmbed";
+    _key: string;
+  } | {
+    code?: string;
+    _type: "codeBlock";
+    _key: string;
   }>;
 };
 
@@ -219,6 +227,14 @@ export type BlockContent = Array<{
   alt?: string;
   _type: "image";
   _key: string;
+} | {
+  url?: string;
+  _type: "videoEmbed";
+  _key: string;
+} | {
+  code?: string;
+  _type: "codeBlock";
+  _key: string;
 }>;
 
 export type SanityImageCrop = {
@@ -278,7 +294,15 @@ export type SanityImageMetadata = {
   isOpaque?: boolean;
 };
 
-export type AllSanitySchemaTypes = SanityImagePaletteSwatch | SanityImagePalette | SanityImageDimensions | SanityFileAsset | Geopoint | Post | Author | Category | Slug | BlockContent | SanityImageCrop | SanityImageHotspot | SanityImageAsset | SanityAssetSourceData | SanityImageMetadata;
+export type Code = {
+  _type: "code";
+  language?: string;
+  filename?: string;
+  code?: string;
+  highlightedLines?: Array<number>;
+};
+
+export type AllSanitySchemaTypes = SanityImagePaletteSwatch | SanityImagePalette | SanityImageDimensions | SanityFileAsset | Geopoint | Post | Author | Category | Slug | BlockContent | SanityImageCrop | SanityImageHotspot | SanityImageAsset | SanityAssetSourceData | SanityImageMetadata | Code;
 export declare const internalGroqTypeReferenceTo: unique symbol;
 // Source: sanity/lib/queries.tsx
 // Variable: POSTS_QUERY
@@ -305,6 +329,10 @@ export type POSTS_QUERYResult = Array<{
     _type: "block";
     _key: string;
   } | {
+    code?: string;
+    _type: "codeBlock";
+    _key: string;
+  } | {
     asset?: {
       _ref: string;
       _type: "reference";
@@ -315,6 +343,10 @@ export type POSTS_QUERYResult = Array<{
     crop?: SanityImageCrop;
     alt?: string;
     _type: "image";
+    _key: string;
+  } | {
+    url?: string;
+    _type: "videoEmbed";
     _key: string;
   }> | null;
   mainImage: {
@@ -378,6 +410,10 @@ export type POST_QUERYResult = {
     _type: "block";
     _key: string;
   } | {
+    code?: string;
+    _type: "codeBlock";
+    _key: string;
+  } | {
     asset?: {
       _ref: string;
       _type: "reference";
@@ -388,6 +424,10 @@ export type POST_QUERYResult = {
     crop?: SanityImageCrop;
     alt?: string;
     _type: "image";
+    _key: string;
+  } | {
+    url?: string;
+    _type: "videoEmbed";
     _key: string;
   }> | null;
   mainImage: {
