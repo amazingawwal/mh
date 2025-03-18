@@ -85,7 +85,7 @@ export default function Hero (){
     return(
         <section className="flex p-5">
             <aside className=" hidden lg:block basis-1/3">
-                <h3 className="mb-2 mr-2 text-center text-lg bg-sky-100 rounded-sm">Pillars of Islam</h3>
+                <h3 className="mb-2 mr-2 text-center text-lg bg-blue-100 rounded-sm">Pillars of Islam</h3>
                 {displayedArticles.map(article=>(
                     <Card title={article.title} 
                           description={article.description}
