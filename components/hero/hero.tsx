@@ -21,7 +21,7 @@ const articles : Article[] = [{
   alt:'Ramadan',
   id: 1,
   bg:'bg-fuchsia-50',
-  url: '/vendors/ramadan'
+  url: '/pillars-of-islam/ramadan'
 },
 {
   title : 'Zakat💛: Purifying Wealth, Elevating Souls',
@@ -30,7 +30,7 @@ const articles : Article[] = [{
   alt:'zakat',
   id: 2,
   bg:'bg-pink-50',
-  url: '/vendors/zakat'
+  url: '/pillars-of-islam/zakat'
 },
 {
     title :'Shahada☝️: The Foundation of Faith',
@@ -39,7 +39,7 @@ const articles : Article[] = [{
     alt:'shahada',
     id: 3,
     bg:'bg-violet-50',
-    url: '/vendors/zakat'
+    url: '/pillars-of-islam/shahada'
   },
 {
     title : 'Salat🕋: The Daily Connection with Allah',
@@ -48,7 +48,7 @@ const articles : Article[] = [{
     alt:'salat',
     id: 4,
     bg:'bg-purple-50',
-    url: '/vendors/zakat'
+    url: '/pillars-of-islam/salat'
   },  
 {
     title : 'Hajj🕋: The Journey of a Lifetime',
@@ -57,7 +57,7 @@ const articles : Article[] = [{
     alt:'hajj',
     id: 5,
     bg:'bg-rose-50',
-  url: '/'
+  url: '/pillars-of-islam/hajj'
   }
 ]
 

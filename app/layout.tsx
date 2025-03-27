@@ -2,6 +2,9 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/navbar/navbar";
+import { draftMode } from "next/headers";
+import { VisualEditing } from "next-sanity";
+import { DisableDraftMode } from "@/components/draft-mode/DisableDraftMode";
 
 import { SanityLive } from "@/sanity/lib/live";
 
@@ -33,6 +36,12 @@ export default function RootLayout({
         <Navbar/>
         {children}
         <SanityLive/>
+        {/* {(await draftMode()).isEnabled && (
+        <>
+          <DisableDraftMode />
+          <VisualEditing />
+        </>
+        )} */}
       </body>
     </html>
   );

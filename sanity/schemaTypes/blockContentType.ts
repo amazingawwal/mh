@@ -74,42 +74,42 @@ export const blockContentType = defineType({
     }),
 
     // video
-    defineArrayMember({
-      type: 'object',
-      name: 'videoEmbed',
-      title: 'Video Embed',
-      fields: [
-        {
-          name: 'url',
-          type: 'url',
-          title: 'Video URL',
-          description: 'Supports YouTube, Vimeo, etc.',
-          validation: (Rule) =>
-            Rule.uri({
-              scheme: ['http', 'https'],
-            }),
-        },
-      ],
-    }),
+    // defineArrayMember({
+    //   type: 'object',
+    //   name: 'videoEmbed',
+    //   title: 'Video Embed',
+    //   fields: [
+    //     {
+    //       name: 'url',
+    //       type: 'url',
+    //       title: 'Video URL',
+    //       description: 'Supports YouTube, Vimeo, etc.',
+    //       validation: (Rule) =>
+    //         Rule.uri({
+    //           scheme: ['http', 'https'],
+    //         }),
+    //     },
+    //   ],
+    // }),
     
 
     // code
-    defineArrayMember({
-      type: 'object',
-      name: 'codeBlock',
-      title: 'Code Block',
-      fields: [
-        {
-          name: 'code',
-          type: 'text',
-          title: 'Code',
-          options: {
-            language: 'javascript',
-            languages: ['javascript', 'python', 'html', 'css', 'typescript'],
-          },
-        },
-      ],
-    }),
+    // defineArrayMember({
+    //   type: 'object',
+    //   name: 'codeBlock',
+    //   title: 'Code Block',
+    //   fields: [
+    //     {
+    //       name: 'code',
+    //       type: 'text',
+    //       title: 'Code',
+    //       options: {
+    //         language: 'javascript',
+    //         languages: ['javascript', 'python', 'html', 'css', 'typescript'],
+    //       },
+    //     },
+    //   ],
+    // }),
     
 
     // callout block-custom alert

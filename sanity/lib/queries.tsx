@@ -47,3 +47,16 @@ export const POST_QUERY =
     image
   }
 }`)
+
+
+
+
+export const AUDIOS_QUERY = defineQuery(`*[
+  _type == "audio"
+  && defined(slug.current)
+]{description,
+  _id,
+  'audio':audio.asset->url,
+  title,
+  slug,}`);
+

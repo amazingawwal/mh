@@ -72,7 +72,7 @@ const Items = () => {
         },
     ]
   return (
-    <div className="grid grid-cols-3 sm:grid-cols-2 md:grid-cols-3 gap-4 p-4">
+    <div className="grid grid-cols-3 sm:grid-cols-2 md:grid-cols-3 gap-4 px-4">
         {items.map(item=>{
            return(
             <MainCard key={item.id}
