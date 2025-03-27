@@ -21,9 +21,7 @@ const MainCard:React.FC<Cards> = ({s_title, b_title, img, url, bg, id}) => {
         <Link href={url}>
             <div className={`p-2 shadow-md rounded-lg flex justify-center items-center h-25 ${bg}`}>
                 <p >{s_title} <span className="text-xl sm:text-lg font-bold" >{b_title}</span></p>
-                
                 {img}
-                {/* <Image width={40} height={7} alt={alt} src={img}/> */}
             </div>
         </Link>
     </div>

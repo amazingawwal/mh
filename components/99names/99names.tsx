@@ -14,6 +14,8 @@ export type ApiResponse = {
 };
 
 
+
+
 export async function getNinetyNineNames(): Promise<AllahName[]> {
   try {
     const { data } = await axios.get<ApiResponse>("https://api.aladhan.com/v1/asmaAlHusna");
@@ -31,8 +33,7 @@ export default async function NinetyNineNamesPage() {
   
     return (
       <main className=" mx-auto p-6">
-        <Title>99 Names of Allah</Title>
-  
+        <Title>Beautiful Names of Allah</Title>
         {names.length === 0 ? (
           <p className="text-red-500">Error fetching data or no names found.</p>
         ) : (

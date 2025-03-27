@@ -32,7 +32,7 @@ const Items = () => {
             img: <Crescent className="my-svg" width="100px" height="50px" />,
             alt: 'salat',
             bg:'bg-pink-100',
-            url:'/'
+            url:'/names-of-Allah'
         },
         {
             id: 3,
