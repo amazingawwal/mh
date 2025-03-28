@@ -12,7 +12,7 @@ type AudioProps = {
   };
   
 
-export default async function AudioPage({ description, title, _id, audio, slug }: AudioProps ) {
+export default async function AudioPage({ description, title, _id, audio}: AudioProps ) {
 
   return (
 
