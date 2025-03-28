@@ -10,7 +10,7 @@ export function PostCard(props: POSTS_QUERYResult[0]) {
   const { title, author, mainImage, publishedAt, categories } = props
 
   return (
-    <Link className="group" href={`/vendors/${props.slug!.current}`}>
+    <Link className="group" href={`/pillars-of-islam/${props.slug!.current}`}>
       <article className="flex flex-col-reverse gap-4 md:grid md:grid-cols-12 md:gap-0">
         <div className="md:col-span-2 md:pt-1">
           <Categories categories={categories} />

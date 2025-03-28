@@ -39,6 +39,54 @@ export type SanityImageDimensions = {
   aspectRatio?: number;
 };
 
+export type Geopoint = {
+  _type: "geopoint";
+  lat?: number;
+  lng?: number;
+  alt?: number;
+};
+
+export type Audio = {
+  _id: string;
+  _type: "audio";
+  _createdAt: string;
+  _updatedAt: string;
+  _rev: string;
+  title?: string;
+  description?: string;
+  slug?: Slug;
+  date?: string;
+  download?: string;
+  reciters?: Array<{
+    children?: Array<{
+      marks?: Array<string>;
+      text?: string;
+      _type: "span";
+      _key: string;
+    }>;
+    style?: "normal" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "blockquote";
+    listItem?: "bullet" | "number";
+    markDefs?: Array<{
+      href?: string;
+      _type: "link";
+      _key: string;
+    }>;
+    level?: number;
+    _type: "block";
+    _key: string;
+  }>;
+  audio_type?: "Story of the Prophet Muhammed (PBUH)" | "Story of other Prophets";
+  audio?: {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.fileAsset";
+    };
+    _type: "file";
+  };
+};
+
 export type SanityFileAsset = {
   _id: string;
   _type: "sanity.fileAsset";
@@ -59,13 +107,6 @@ export type SanityFileAsset = {
   path?: string;
   url?: string;
   source?: SanityAssetSourceData;
-};
-
-export type Geopoint = {
-  _type: "geopoint";
-  lat?: number;
-  lng?: number;
-  alt?: number;
 };
 
 export type Post = {
@@ -130,14 +171,6 @@ export type Post = {
     crop?: SanityImageCrop;
     alt?: string;
     _type: "image";
-    _key: string;
-  } | {
-    url?: string;
-    _type: "videoEmbed";
-    _key: string;
-  } | {
-    code?: string;
-    _type: "codeBlock";
     _key: string;
   }>;
 };
@@ -227,14 +260,6 @@ export type BlockContent = Array<{
   alt?: string;
   _type: "image";
   _key: string;
-} | {
-  url?: string;
-  _type: "videoEmbed";
-  _key: string;
-} | {
-  code?: string;
-  _type: "codeBlock";
-  _key: string;
 }>;
 
 export type SanityImageCrop = {
@@ -302,7 +327,7 @@ export type Code = {
   highlightedLines?: Array<number>;
 };
 
-export type AllSanitySchemaTypes = SanityImagePaletteSwatch | SanityImagePalette | SanityImageDimensions | SanityFileAsset | Geopoint | Post | Author | Category | Slug | BlockContent | SanityImageCrop | SanityImageHotspot | SanityImageAsset | SanityAssetSourceData | SanityImageMetadata | Code;
+export type AllSanitySchemaTypes = SanityImagePaletteSwatch | SanityImagePalette | SanityImageDimensions | Geopoint | Audio | SanityFileAsset | Post | Author | Category | Slug | BlockContent | SanityImageCrop | SanityImageHotspot | SanityImageAsset | SanityAssetSourceData | SanityImageMetadata | Code;
 export declare const internalGroqTypeReferenceTo: unique symbol;
 // Source: sanity/lib/queries.tsx
 // Variable: POSTS_QUERY
@@ -329,10 +354,6 @@ export type POSTS_QUERYResult = Array<{
     _type: "block";
     _key: string;
   } | {
-    code?: string;
-    _type: "codeBlock";
-    _key: string;
-  } | {
     asset?: {
       _ref: string;
       _type: "reference";
@@ -343,10 +364,6 @@ export type POSTS_QUERYResult = Array<{
     crop?: SanityImageCrop;
     alt?: string;
     _type: "image";
-    _key: string;
-  } | {
-    url?: string;
-    _type: "videoEmbed";
     _key: string;
   }> | null;
   mainImage: {
@@ -410,10 +427,6 @@ export type POST_QUERYResult = {
     _type: "block";
     _key: string;
   } | {
-    code?: string;
-    _type: "codeBlock";
-    _key: string;
-  } | {
     asset?: {
       _ref: string;
       _type: "reference";
@@ -424,10 +437,6 @@ export type POST_QUERYResult = {
     crop?: SanityImageCrop;
     alt?: string;
     _type: "image";
-    _key: string;
-  } | {
-    url?: string;
-    _type: "videoEmbed";
     _key: string;
   }> | null;
   mainImage: {
@@ -463,6 +472,15 @@ export type POST_QUERYResult = {
     } | null;
   } | null;
 } | null;
+// Variable: AUDIOS_QUERY
+// Query: *[  _type == "audio"  && defined(slug.current)]{description,  _id,  'audio':audio.asset->url,  title,  slug,}
+export type AUDIOS_QUERYResult = Array<{
+  description: string | null;
+  _id: string;
+  audio: string | null;
+  title: string | null;
+  slug: Slug | null;
+}>;
 
 // Query TypeMap
 import "@sanity/client";
@@ -471,5 +489,6 @@ declare module "@sanity/client" {
     "*[_type == \"post\" && defined(slug.current)]|order(publishedAt desc)[0...12]{\n  _id,\n  title,\n  slug,\n  body,\n  mainImage,\n  publishedAt,\n  \"categories\": coalesce(\n    categories[]->{\n      _id,\n      slug,\n      title\n    },\n    []\n  ),\n  author->{\n    name,\n    image\n  }\n}": POSTS_QUERYResult;
     "*[_type == \"post\" && defined(slug.current)]{ \n  \"slug\": slug.current\n}": POSTS_SLUGS_QUERYResult;
     "*[_type == \"post\" && slug.current == $slug][0]{\n  _id,\n  title,\n  body,\n  mainImage,\n  publishedAt,\n  \"categories\": coalesce(\n    categories[]->{\n      _id,\n      slug,\n      title\n    },\n    []\n  ),\n  author->{\n    name,\n    image\n  }\n}": POST_QUERYResult;
+    "*[\n  _type == \"audio\"\n  && defined(slug.current)\n]{description,\n  _id,\n  'audio':audio.asset->url,\n  title,\n  slug,}": AUDIOS_QUERYResult;
   }
 }
