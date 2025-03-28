@@ -30,6 +30,9 @@ export async function getNinetyNineNames(): Promise<AllahName[]> {
 export default async function NinetyNineNamesPage() {
    
     const names = await getNinetyNineNames();
+
+    // console.log("SANITY_API_READ_TOKEN:", process.env.SANITY_API_READ_TOKEN);
+
   
     return (
       <main className=" mx-auto p-6">
