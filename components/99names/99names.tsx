@@ -37,9 +37,9 @@ export default async function NinetyNineNamesPage() {
         {names.length === 0 ? (
           <p className="text-red-500">Error fetching data or no names found.</p>
         ) : (
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+            <div dir="rtl" className="  grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
             {names.map((name) => (
-              <BeautifulNames key={name.number} {...name}/>
+              <BeautifulNames  key={name.number} {...name}/>
             ))}
           </div>
         )}

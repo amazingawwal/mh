@@ -8,7 +8,7 @@ export const BeautifulNames = (props: AllahName) => {
                 <div dir="rtl" className="text-right">
                     <h2 className="text-lg  font-semibold">{name}</h2>
                 </div>
-                <div>
+                <div dir="ltr">
                     <p className="text-sm text-rose-600">{transliteration}</p>
                     <p className="text-sm">{en.meaning}</p>
                 </div>
