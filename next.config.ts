@@ -14,8 +14,4 @@ const nextConfig: NextConfig = {
 
 export default nextConfig;
 
-// module.exports = {
-//   images: {
-//     domains: ["cdn.sanity.io"], // Added Sanity image CDN
-//   },
-// };
+
