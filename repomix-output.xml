@@ -1,0 +1,5397 @@
+This file is a merged representation of the entire codebase, combined into a single document by Repomix.
+
+<file_summary>
+This section contains a summary of this file.
+
+<purpose>
+This file contains a packed representation of the entire repository's contents.
+It is designed to be easily consumable by AI systems for analysis, code review,
+or other automated processes.
+</purpose>
+
+<file_format>
+The content is organized as follows:
+1. This summary section
+2. Repository information
+3. Directory structure
+4. Repository files (if enabled)
+5. Multiple file entries, each consisting of:
+  - File path as an attribute
+  - Full contents of the file
+</file_format>
+
+<usage_guidelines>
+- This file should be treated as read-only. Any changes should be made to the
+  original repository files, not this packed version.
+- When processing this file, use the file path to distinguish
+  between different files in the repository.
+- Be aware that this file may contain sensitive information. Handle it with
+  the same level of security as you would the original repository.
+</usage_guidelines>
+
+<notes>
+- Some files may have been excluded based on .gitignore rules and Repomix's configuration
+- Binary files are not included in this packed representation. Please refer to the Repository Structure section for a complete list of file paths, including binary files
+- Files matching patterns in .gitignore are excluded
+- Files matching default ignore patterns are excluded
+- Files are sorted by Git change count (files with more changes are at the bottom)
+</notes>
+
+</file_summary>
+
+<directory_structure>
+.gitignore
+.sanity/runtime/app.js
+.sanity/runtime/index.html
+app/audio/page.tsx
+app/favicon.ico
+app/globals.css
+app/layout.tsx
+app/names-of-Allah/page.tsx
+app/page.tsx
+app/pillars-of-islam/[slug]/page.tsx
+app/pillars-of-islam/page.tsx
+app/studio/[[...tool]]/page.tsx
+components/99names/99names.tsx
+components/audioFile/audio.tsx
+components/author/author.tsx
+components/card/beautiful-names.tsx
+components/card/card.tsx
+components/card/card2.tsx
+components/categories/categories.tsx
+components/draft-mode/DisableDraftMode.tsx
+components/hero/carousel.tsx
+components/hero/hero.tsx
+components/item/items.tsx
+components/navbar/navbar.tsx
+components/navigation/navlink.tsx
+components/post/post.tsx
+components/postcard/postcard.tsx
+components/publishedat/publishedat.tsx
+components/svg/crescent.tsx
+components/title/title.tsx
+daisyui.d.ts
+eslint.config.mjs
+LICENSE
+next.config.ts
+package.json
+PortableTextComponent.tsx
+postcss.config.mjs
+public/file.svg
+public/globe.svg
+public/hajj-hero.png
+public/hajj.png
+public/icons8.png
+public/image.png
+public/lamp.jpg
+public/masjid.jpg
+public/men_at_mosque.jpg
+public/muslim-hub.jpg
+public/new-logo.png
+public/next.svg
+public/picture.png
+public/praying_mat.jpg
+public/Qur'an.jpg
+public/Qur'an2.jpg
+public/Quran2.jpg
+public/ramadan-hero.png
+public/salat-hero.jpg
+public/shahada-hero.jpg
+public/sujud.jpg
+public/vercel.svg
+public/window.svg
+public/zakat-hero.png
+README.md
+sanity-typegen.json
+sanity.cli.ts
+sanity.config.ts
+sanity/env.ts
+sanity/extract.json
+sanity/lib/client.ts
+sanity/lib/image.ts
+sanity/lib/live.ts
+sanity/lib/queries.tsx
+sanity/schemaTypes/audioTypes.ts
+sanity/schemaTypes/authorType.ts
+sanity/schemaTypes/blockContentType.ts
+sanity/schemaTypes/categoryType.ts
+sanity/schemaTypes/index.ts
+sanity/schemaTypes/postType.ts
+sanity/structure.ts
+sanity/types.ts
+tailwind.config.ts
+tsconfig.json
+</directory_structure>
+
+<files>
+This section contains the contents of the repository's files.
+
+<file path=".sanity/runtime/app.js">
+// This file is auto-generated on 'sanity dev'
+// Modifications to this file is automatically discarded
+import {renderStudio} from "sanity"
+import studioConfig from "..\\..\\sanity.config.ts"
+
+renderStudio(
+  document.getElementById("sanity"),
+  studioConfig,
+  {reactStrictMode: false, basePath: "/"}
+)
+</file>
+
+<file path=".sanity/runtime/index.html">
+<!DOCTYPE html><html lang="en">
+<!--
+This file is auto-generated from "sanity dev".
+Modifications to this file are automatically discarded.
+-->
+<head><meta charSet="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover"/><meta name="robots" content="noindex"/><meta name="referrer" content="same-origin"/><link rel="icon" href="/static/favicon.ico" sizes="any"/><link rel="icon" href="/static/favicon.svg" type="image/svg+xml"/><link rel="apple-touch-icon" href="/static/apple-touch-icon.png"/><link rel="manifest" href="/static/manifest.webmanifest"/><title>Sanity Studio</title><script>
+;(function () {
+  var _caughtErrors = []
+
+  var errorChannel = (function () {
+    var subscribers = []
+
+    function publish(msg) {
+      for (var i = 0; i < subscribers.length; i += 1) {
+        subscribers[i](msg)
+      }
+    }
+
+    function subscribe(subscriber) {
+      subscribers.push(subscriber)
+
+      return function () {
+        var idx = subscribers.indexOf(subscriber)
+
+        if (idx > -1) {
+          subscribers.splice(idx, 1)
+        }
+      }
+    }
+
+    return {publish, subscribe, subscribers}
+  })()
+
+  // NOTE: Store the error channel instance in the global scope so that the Studio application can
+  // access it and subscribe to errors.
+  window.__sanityErrorChannel = {
+    subscribe: errorChannel.subscribe,
+  }
+
+  function _nextTick(callback) {
+    setTimeout(callback, 0)
+  }
+
+  function _handleError(error, params) {
+    _nextTick(function () {
+      // - If there are error channel subscribers, then we notify them (no console error).
+      // - If there are no subscribers, then we log the error to the console and render the error overlay.
+      if (errorChannel.subscribers.length) {
+        errorChannel.publish({error, params})
+      } else {
+        console.error(error)
+
+        _renderErrorOverlay(error, params)
+      }
+    })
+  }
+
+  var ERROR_BOX_STYLE = [
+    'background: #fff',
+    'border-radius: 6px',
+    'box-sizing: border-box',
+    'color: #121923',
+    'flex: 1',
+    "font-family: -apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue','Liberation Sans',Helvetica,Arial,system-ui,sans-serif",
+    'font-size: 16px',
+    'line-height: 21px',
+    'margin: 0 auto',
+    'max-width: 960px',
+    'overflow: auto',
+    'padding: 20px',
+    'width: 100%',
+  ].join(';')
+
+  var ERROR_CODE_STYLE = [
+    'color: #972E2A',
+    "font-family: -apple-system-ui-monospace, 'SF Mono', Menlo, Monaco, Consolas, monospace",
+    'font-size: 13px',
+    'line-height: 17px',
+    'margin: 0',
+  ].join(';')
+
+  function _renderErrorOverlay(error, params) {
+    var errorElement = document.querySelector('#__sanityError') || document.createElement('div')
+    var colno = params.event.colno
+    var lineno = params.event.lineno
+    var filename = params.event.filename
+
+    errorElement.id = '__sanityError'
+    errorElement.innerHTML = [
+      '<div style="' + ERROR_BOX_STYLE + '">',
+      '<div style="font-weight: 700;">Uncaught error: ' + error.message + '</div>',
+      '<div style="color: #515E72; font-size: 13px; line-height: 17px; margin: 10px 0;">' +
+        filename +
+        ':' +
+        lineno +
+        ':' +
+        colno +
+        '</div>',
+      '<pre style="' + ERROR_CODE_STYLE + '">' + error.stack + '</pre>',
+      '</div>',
+    ].join('')
+
+    errorElement.style.position = 'fixed'
+    errorElement.style.zIndex = 1000000
+    errorElement.style.top = 0
+    errorElement.style.left = 0
+    errorElement.style.right = 0
+    errorElement.style.bottom = 0
+    errorElement.style.padding = '20px'
+    errorElement.style.background = 'rgba(16,17,18,0.66)'
+    errorElement.style.display = 'flex'
+    errorElement.style.alignItems = 'center'
+    errorElement.style.justifyContent = 'center'
+
+    document.body.appendChild(errorElement)
+  }
+
+  // NOTE:
+  // Yes – we're attaching 2 error listeners below 👀
+  // This is because React makes the same error throw twice (in development mode).
+  // See: https://github.com/facebook/react/issues/10384
+
+  // Error listener #1
+  window.onerror = function (event, source, lineno, colno, error) {
+    _nextTick(function () {
+      if (_caughtErrors.indexOf(error) !== -1) return
+
+      _caughtErrors.push(error)
+
+      _handleError(error, {
+        event,
+        lineno,
+        colno,
+        source,
+      })
+
+      _nextTick(function () {
+        var idx = _caughtErrors.indexOf(error)
+
+        if (idx > -1) _caughtErrors.splice(idx, 1)
+      })
+    })
+
+    // IMPORTANT: this callback must return `true` to prevent the error from being rendered in
+    // the browser’s console.
+    return true
+  }
+
+  // Error listener #2
+  window.addEventListener('error', function (event) {
+    if (_caughtErrors.indexOf(event.error) !== -1) return true
+
+    _caughtErrors.push(event.error)
+
+    _handleError(event.error, {
+      event,
+      lineno: event.lineno,
+      colno: event.colno,
+    })
+
+    _nextTick(function () {
+      _nextTick(function () {
+        var idx = _caughtErrors.indexOf(event.error)
+
+        if (idx > -1) _caughtErrors.splice(idx, 1)
+      })
+    })
+
+    return true
+  })
+})()
+</script><style>
+  @font-face {
+    font-family: Inter;
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url("https://studio-static.sanity.io/Inter-Regular.woff2") format("woff2");
+  }
+  @font-face {
+    font-family: Inter;
+    font-style: italic;
+    font-weight: 400;
+    font-display: swap;
+    src: url("https://studio-static.sanity.io/Inter-Italic.woff2") format("woff2");
+  }
+  @font-face {
+    font-family: Inter;
+    font-style: normal;
+    font-weight: 500;
+    font-display: swap;
+    src: url("https://studio-static.sanity.io/Inter-Medium.woff2") format("woff2");
+  }
+  @font-face {
+    font-family: Inter;
+    font-style: italic;
+    font-weight: 500;
+    font-display: swap;
+    src: url("https://studio-static.sanity.io/Inter-MediumItalic.woff2") format("woff2");
+  }
+  @font-face {
+    font-family: Inter;
+    font-style: normal;
+    font-weight: 600;
+    font-display: swap;
+    src: url("https://studio-static.sanity.io/Inter-SemiBold.woff2") format("woff2");
+  }
+  @font-face {
+    font-family: Inter;
+    font-style: italic;
+    font-weight: 600;
+    font-display: swap;
+    src: url("https://studio-static.sanity.io/Inter-SemiBoldItalic.woff2") format("woff2");
+  }
+  @font-face {
+    font-family: Inter;
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+    src: url("https://studio-static.sanity.io/Inter-Bold.woff2") format("woff2");
+  }
+  @font-face {
+    font-family: Inter;
+    font-style: italic;
+    font-weight: 700;
+    font-display: swap;
+    src: url("https://studio-static.sanity.io/Inter-BoldItalic.woff2") format("woff2");
+  }
+  @font-face {
+    font-family: Inter;
+    font-style: normal;
+    font-weight: 800;
+    font-display: swap;
+    src: url("https://studio-static.sanity.io/Inter-ExtraBold.woff2") format("woff2");
+  }
+  @font-face {
+    font-family: Inter;
+    font-style: italic;
+    font-weight: 800;
+    font-display: swap;
+    src: url("https://studio-static.sanity.io/Inter-ExtraBoldItalic.woff2") format("woff2");
+  }
+  @font-face {
+    font-family: Inter;
+    font-style: normal;
+    font-weight: 900;
+    font-display: swap;
+    src: url("https://studio-static.sanity.io/Inter-Black.woff2") format("woff2");
+  }
+  @font-face {
+    font-family: Inter;
+    font-style: italic;
+    font-weight: 900;
+    font-display: swap;
+    src: url("https://studio-static.sanity.io/Inter-BlackItalic.woff2") format("woff2");
+  }
+  html {
+    background-color: #f1f3f6;
+  }
+  html,
+  body,
+  #sanity {
+    height: 100%;
+  }
+  body {
+    margin: 0;
+    -webkit-font-smoothing: antialiased;
+  }
+</style><script src="https://core.sanity-cdn.com/bridge.js" async type="module" data-sanity-core></script>
+</head><body><div id="sanity"></div><script type="module" src="/.sanity\runtime\app.js"></script><noscript><div class="sanity-app-no-js__root"><div class="sanity-app-no-js__content"><style type="text/css">
+.sanity-app-no-js__root {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  background: #fff;
+}
+
+.sanity-app-no-js__content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  font-family: helvetica, arial, sans-serif;
+}
+</style><h1>JavaScript disabled</h1><p>Please <a href="https://www.enable-javascript.com/">enable JavaScript</a> in your browser and reload the page to proceed.</p></div></div></noscript></body></html>
+</file>
+
+<file path="app/pillars-of-islam/[slug]/page.tsx">
+import { sanityFetch } from "@/sanity/lib/live";
+import { POST_QUERY } from '@/sanity/lib/queries'
+import { Post } from "@/components/post/post";
+import { notFound } from 'next/navigation'
+
+export default async function Page({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) {
+const {data: post} = await sanityFetch({query: POST_QUERY, params: await params})
+
+  if (!post) {
+    notFound()
+  }
+
+  return (
+    <main className="container mx-auto grid grid-cols-1 gap-6 p-6">
+      <Post {...post} />
+    </main>
+  )
+}
+</file>
+
+<file path="app/pillars-of-islam/page.tsx">
+import { sanityFetch } from "@/sanity/lib/live";
+import { POSTS_QUERY } from '@/sanity/lib/queries'
+import { PostCard } from "@/components/postcard/postcard";
+import { Title } from "@/components/title/title";
+
+export default async function Page() {
+  const {data: posts} = await sanityFetch({query: POSTS_QUERY});
+
+  return (
+    <main className="container mx-auto grid grid-cols-1 gap-6 p-6">
+      <Title>Post Index</Title>
+      <div className="flex flex-col gap-12 py-12">
+        {posts.map((post) => (
+          <PostCard key={post._id} {...post} />
+        ))}
+      </div>
+    </main>
+  )
+}
+</file>
+
+<file path="app/studio/[[...tool]]/page.tsx">
+/**
+ * This route is responsible for the built-in authoring environment using Sanity Studio.
+ * All routes under your studio path is handled by this file using Next.js' catch-all routes:
+ * https://nextjs.org/docs/routing/dynamic-routes#catch-all-routes
+ *
+ * You can learn more about the next-sanity package here:
+ * https://github.com/sanity-io/next-sanity
+ */
+
+import { NextStudio } from 'next-sanity/studio'
+import config from '../../../sanity.config'
+
+export const dynamic = 'force-static'
+
+export { metadata, viewport } from 'next-sanity/studio'
+
+export default function StudioPage() {
+  return <NextStudio config={config} />
+}
+</file>
+
+<file path="components/author/author.tsx">
+import { POST_QUERYResult } from '@/sanity/types'
+import { urlFor } from '@/sanity/lib/image'
+import Image from 'next/image'
+
+type AuthorProps = {
+  author: NonNullable<POST_QUERYResult>['author']
+}
+
+export function Author({ author }: AuthorProps) {
+  return author?.image || author?.name ? (
+    <div className="flex items-center gap-2">
+      {author?.image ? (
+        <Image
+          src={urlFor(author.image).width(80).height(80).url()}
+          width={80}
+          height={80}
+          alt={author.name || ''}
+          className="bg-pink-50 size-10 shadow-inner rounded-full"
+        />
+      ) : (<div className="avatar avatar-placeholder">
+              <div className="bg-neutral text-neutral-content w-8 rounded-full">
+                <span className="text-xs">MH</span>
+              </div>
+            </div>) }
+      {author?.name ? (
+        <p className="text-base text-slate-700">{author.name}</p>
+      ) : null}
+    </div>
+  ) : null
+}
+</file>
+
+<file path="components/categories/categories.tsx">
+import { POST_QUERYResult } from '@/sanity/types'
+
+type CategoriesProps = {
+  categories: NonNullable<POST_QUERYResult>['categories']
+}
+
+export function Categories({ categories }: CategoriesProps) {
+  return categories.map((category) => (
+    <span
+      key={category._id}
+      className="bg-cyan-50 rounded-full px-2 py-1 leading-none whitespace-nowrap text-sm font-semibold text-cyan-700"
+    >
+      {category.title}
+    </span>
+  ))
+}
+</file>
+
+<file path="components/draft-mode/DisableDraftMode.tsx">
+"use client";
+
+import { useDraftModeEnvironment } from "next-sanity/hooks";
+
+export function DisableDraftMode() {
+  const environment = useDraftModeEnvironment();
+
+  // Only show the disable draft mode button when outside of Presentation Tool
+  if (environment !== "live" && environment !== "unknown") {
+    return null;
+  }
+
+  return (
+    <a
+      href="/api/draft-mode/disable"
+      className="fixed bottom-4 right-4 bg-gray-50 px-4 py-2"
+    >
+      Disable Draft Mode
+    </a>
+  );
+}
+</file>
+
+<file path="components/navigation/navlink.tsx">
+
+</file>
+
+<file path="components/publishedat/publishedat.tsx">
+import { POST_QUERYResult } from '@/sanity/types'
+import dayjs from 'dayjs'
+
+type PublishedAtProps = {
+  publishedAt: NonNullable<POST_QUERYResult>['publishedAt']
+}
+
+export function PublishedAt({ publishedAt }: PublishedAtProps) {
+  return publishedAt ? (
+    <p className="text-base text-slate-700">
+      {dayjs(publishedAt).format('D MMMM YYYY')}
+    </p>
+  ) : null
+}
+</file>
+
+<file path="components/title/title.tsx">
+import { PropsWithChildren } from 'react'
+
+export function Title(props: PropsWithChildren) {
+  return (
+    <h1 className="text-2xl md:text-4xl lg:text-4xl font-semibold text-slate-800 text-pretty max-w-3xl">
+      {props.children}
+    </h1>
+  )
+}
+</file>
+
+<file path="daisyui.d.ts">
+declare module "daisyui";
+</file>
+
+<file path="eslint.config.mjs">
+import { dirname } from "path";
+import { fileURLToPath } from "url";
+import { FlatCompat } from "@eslint/eslintrc";
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+
+const compat = new FlatCompat({
+  baseDirectory: __dirname,
+});
+
+const eslintConfig = [
+  ...compat.extends("next/core-web-vitals", "next/typescript"),
+];
+
+export default eslintConfig;
+</file>
+
+<file path="LICENSE">
+MIT License
+
+Copyright (c) 2025 amazingawwal
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+</file>
+
+<file path="postcss.config.mjs">
+const config = {
+  plugins: ["@tailwindcss/postcss"],
+};
+
+export default config;
+</file>
+
+<file path="public/file.svg">
+<svg fill="none" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"><path d="M14.5 13.5V5.41a1 1 0 0 0-.3-.7L9.8.29A1 1 0 0 0 9.08 0H1.5v13.5A2.5 2.5 0 0 0 4 16h8a2.5 2.5 0 0 0 2.5-2.5m-1.5 0v-7H8v-5H3v12a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1M9.5 5V2.12L12.38 5zM5.13 5h-.62v1.25h2.12V5zm-.62 3h7.12v1.25H4.5zm.62 3h-.62v1.25h7.12V11z" clip-rule="evenodd" fill="#666" fill-rule="evenodd"/></svg>
+</file>
+
+<file path="public/globe.svg">
+<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><g clip-path="url(#a)"><path fill-rule="evenodd" clip-rule="evenodd" d="M10.27 14.1a6.5 6.5 0 0 0 3.67-3.45q-1.24.21-2.7.34-.31 1.83-.97 3.1M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16m.48-1.52a7 7 0 0 1-.96 0H7.5a4 4 0 0 1-.84-1.32q-.38-.89-.63-2.08a40 40 0 0 0 3.92 0q-.25 1.2-.63 2.08a4 4 0 0 1-.84 1.31zm2.94-4.76q1.66-.15 2.95-.43a7 7 0 0 0 0-2.58q-1.3-.27-2.95-.43a18 18 0 0 1 0 3.44m-1.27-3.54a17 17 0 0 1 0 3.64 39 39 0 0 1-4.3 0 17 17 0 0 1 0-3.64 39 39 0 0 1 4.3 0m1.1-1.17q1.45.13 2.69.34a6.5 6.5 0 0 0-3.67-3.44q.65 1.26.98 3.1M8.48 1.5l.01.02q.41.37.84 1.31.38.89.63 2.08a40 40 0 0 0-3.92 0q.25-1.2.63-2.08a4 4 0 0 1 .85-1.32 7 7 0 0 1 .96 0m-2.75.4a6.5 6.5 0 0 0-3.67 3.44 29 29 0 0 1 2.7-.34q.31-1.83.97-3.1M4.58 6.28q-1.66.16-2.95.43a7 7 0 0 0 0 2.58q1.3.27 2.95.43a18 18 0 0 1 0-3.44m.17 4.71q-1.45-.12-2.69-.34a6.5 6.5 0 0 0 3.67 3.44q-.65-1.27-.98-3.1" fill="#666"/></g><defs><clipPath id="a"><path fill="#fff" d="M0 0h16v16H0z"/></clipPath></defs></svg>
+</file>
+
+<file path="public/next.svg">
+<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 394 80"><path fill="#000" d="M262 0h68.5v12.7h-27.2v66.6h-13.6V12.7H262V0ZM149 0v12.7H94v20.4h44.3v12.6H94v21h55v12.6H80.5V0h68.7zm34.3 0h-17.8l63.8 79.4h17.9l-32-39.7 32-39.6h-17.9l-23 28.6-23-28.6zm18.3 56.7-9-11-27.1 33.7h17.8l18.3-22.7z"/><path fill="#000" d="M81 79.3 17 0H0v79.3h13.6V17l50.2 62.3H81Zm252.6-.4c-1 0-1.8-.4-2.5-1s-1.1-1.6-1.1-2.6.3-1.8 1-2.5 1.6-1 2.6-1 1.8.3 2.5 1a3.4 3.4 0 0 1 .6 4.3 3.7 3.7 0 0 1-3 1.8zm23.2-33.5h6v23.3c0 2.1-.4 4-1.3 5.5a9.1 9.1 0 0 1-3.8 3.5c-1.6.8-3.5 1.3-5.7 1.3-2 0-3.7-.4-5.3-1s-2.8-1.8-3.7-3.2c-.9-1.3-1.4-3-1.4-5h6c.1.8.3 1.6.7 2.2s1 1.2 1.6 1.5c.7.4 1.5.5 2.4.5 1 0 1.8-.2 2.4-.6a4 4 0 0 0 1.6-1.8c.3-.8.5-1.8.5-3V45.5zm30.9 9.1a4.4 4.4 0 0 0-2-3.3 7.5 7.5 0 0 0-4.3-1.1c-1.3 0-2.4.2-3.3.5-.9.4-1.6 1-2 1.6a3.5 3.5 0 0 0-.3 4c.3.5.7.9 1.3 1.2l1.8 1 2 .5 3.2.8c1.3.3 2.5.7 3.7 1.2a13 13 0 0 1 3.2 1.8 8.1 8.1 0 0 1 3 6.5c0 2-.5 3.7-1.5 5.1a10 10 0 0 1-4.4 3.5c-1.8.8-4.1 1.2-6.8 1.2-2.6 0-4.9-.4-6.8-1.2-2-.8-3.4-2-4.5-3.5a10 10 0 0 1-1.7-5.6h6a5 5 0 0 0 3.5 4.6c1 .4 2.2.6 3.4.6 1.3 0 2.5-.2 3.5-.6 1-.4 1.8-1 2.4-1.7a4 4 0 0 0 .8-2.4c0-.9-.2-1.6-.7-2.2a11 11 0 0 0-2.1-1.4l-3.2-1-3.8-1c-2.8-.7-5-1.7-6.6-3.2a7.2 7.2 0 0 1-2.4-5.7 8 8 0 0 1 1.7-5 10 10 0 0 1 4.3-3.5c2-.8 4-1.2 6.4-1.2 2.3 0 4.4.4 6.2 1.2 1.8.8 3.2 2 4.3 3.4 1 1.4 1.5 3 1.5 5h-5.8z"/></svg>
+</file>
+
+<file path="public/vercel.svg">
+<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1155 1000"><path d="m577.3 0 577.4 1000H0z" fill="#fff"/></svg>
+</file>
+
+<file path="public/window.svg">
+<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" clip-rule="evenodd" d="M1.5 2.5h13v10a1 1 0 0 1-1 1h-11a1 1 0 0 1-1-1zM0 1h16v11.5a2.5 2.5 0 0 1-2.5 2.5h-11A2.5 2.5 0 0 1 0 12.5zm3.75 4.5a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5M7 4.75a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0m1.75.75a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5" fill="#666"/></svg>
+</file>
+
+<file path="README.md">
+This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+
+## Getting Started
+
+First, run the development server:
+
+```bash
+npm run dev
+# or
+yarn dev
+# or
+pnpm dev
+# or
+bun dev
+```
+
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+
+You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+
+This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+
+## Learn More
+
+To learn more about Next.js, take a look at the following resources:
+
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+
+## Deploy on Vercel
+
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+</file>
+
+<file path="sanity-typegen.json">
+{
+    "path": "./**/*.{ts,tsx,js,jsx}",
+    "schema": "./sanity/extract.json",
+    "generates": "./sanity/types.ts"
+  }
+</file>
+
+<file path="sanity.cli.ts">
+/**
+* This configuration file lets you run `$ sanity [command]` in this folder
+* Go to https://www.sanity.io/docs/cli to learn more.
+**/
+import { defineCliConfig } from 'sanity/cli'
+
+const projectId = process.env.NEXT_PUBLIC_SANITY_PROJECT_ID
+const dataset = process.env.NEXT_PUBLIC_SANITY_DATASET
+
+export default defineCliConfig({ api: { projectId, dataset } })
+</file>
+
+<file path="sanity/env.ts">
+export const apiVersion =
+  process.env.NEXT_PUBLIC_SANITY_API_VERSION || '2025-03-09'
+
+export const dataset = assertValue(
+  process.env.NEXT_PUBLIC_SANITY_DATASET,
+  'Missing environment variable: NEXT_PUBLIC_SANITY_DATASET'
+)
+
+export const projectId = assertValue(
+  process.env.NEXT_PUBLIC_SANITY_PROJECT_ID,
+  'Missing environment variable: NEXT_PUBLIC_SANITY_PROJECT_ID'
+)
+
+function assertValue<T>(v: T | undefined, errorMessage: string): T {
+  if (v === undefined) {
+    throw new Error(errorMessage)
+  }
+
+  return v
+}
+</file>
+
+<file path="sanity/lib/image.ts">
+import createImageUrlBuilder from '@sanity/image-url'
+import { SanityImageSource } from "@sanity/image-url/lib/types/types";
+
+import { dataset, projectId } from '../env'
+
+// https://www.sanity.io/docs/image-url
+const builder = createImageUrlBuilder({ projectId, dataset })
+
+export const urlFor = (source: SanityImageSource) => {
+  return builder.image(source)
+}
+</file>
+
+<file path="sanity/schemaTypes/audioTypes.ts">
+import {defineField, defineType} from 'sanity'
+
+
+export const audioFile = defineType({
+    name: 'lecture',
+    title: 'Lecture',
+    type: 'file',
+    fields: [
+        {
+          name: "title",
+          title: "Title",
+          type: "string"
+        },
+        {
+          name: "description",
+          title: "Description",
+          type: "text"
+        },
+        {
+          name: "duration",
+          title: "Duration (in seconds)",
+          type: "number"
+        }
+      ]
+})
+
+export const audioType = defineType({
+  name: 'audio',
+  title: 'Audio',
+  type: 'document',
+  fields: [
+    defineField({
+      name: 'title',
+      type: 'string',
+      }),
+    defineField({
+      name: 'description',
+      type: 'text',
+    }),
+    defineField({
+        name: 'slug',
+        type: 'slug',
+        options: {
+            source: 'title',
+          },
+        validation: (rule)=> rule.required().warning('Please ensure this field has value to generate working url'),
+        hidden: ({document})=>!document?.title
+      }),
+      defineField({
+        name: 'date',
+        type: 'datetime'
+      }),
+      defineField({
+        name: 'download',
+        type: 'url'
+      }),
+      defineField({
+        name: 'reciters',
+        type: 'array',
+        of: [{type: 'block'}]
+      }),
+      defineField({
+        name: 'audio_type',
+        type: 'string',
+        options: {
+            list: ['Story of the Prophet Muhammed (PBUH)', 'Story of other Prophets'],
+            layout: 'dropdown'
+        }
+      }),
+      defineField({
+        name: 'audio',
+        type: 'file',
+        options: {
+            accept: 'audio/*'
+        }
+        // type: 'reference',
+        // to: [{
+        //     type:'lecture'
+        // }]
+      }),
+  ],
+})
+</file>
+
+<file path="sanity/schemaTypes/authorType.ts">
+import {UserIcon} from '@sanity/icons'
+import {defineArrayMember, defineField, defineType} from 'sanity'
+
+export const authorType = defineType({
+  name: 'author',
+  title: 'Author',
+  type: 'document',
+  icon: UserIcon,
+  fields: [
+    defineField({
+      name: 'name',
+      type: 'string',
+    }),
+    defineField({
+      name: 'slug',
+      type: 'slug',
+      options: {
+        source: 'name',
+      },
+    }),
+    defineField({
+      name: 'image',
+      type: 'image',
+      options: {
+        hotspot: true,
+      },
+    }),
+    defineField({
+      name: 'bio',
+      type: 'array',
+      of: [
+        defineArrayMember({
+          type: 'block',
+          styles: [{title: 'Normal', value: 'normal'}],
+          lists: [],
+        }),
+      ],
+    }),
+  ],
+  preview: {
+    select: {
+      title: 'name',
+      media: 'image',
+    },
+  },
+})
+</file>
+
+<file path="sanity/schemaTypes/categoryType.ts">
+import {TagIcon} from '@sanity/icons'
+import {defineField, defineType} from 'sanity'
+
+export const categoryType = defineType({
+  name: 'category',
+  title: 'Category',
+  type: 'document',
+  icon: TagIcon,
+  fields: [
+    defineField({
+      name: 'title',
+      type: 'string',
+    }),
+    defineField({
+      name: 'slug',
+      type: 'slug',
+      options: {
+        source: 'title',
+      },
+    }),
+    defineField({
+      name: 'description',
+      type: 'text',
+    }),
+  ],
+})
+</file>
+
+<file path="sanity/structure.ts">
+import type {StructureResolver} from 'sanity/structure'
+
+// https://www.sanity.io/docs/structure-builder-cheat-sheet
+export const structure: StructureResolver = (S) =>
+  S.list()
+    .title('Blog')
+    .items([
+      S.documentTypeListItem('post').title('Posts'),
+      S.documentTypeListItem('category').title('Categories'),
+      S.documentTypeListItem('author').title('Authors'),
+      S.divider(),
+      ...S.documentTypeListItems().filter(
+        (item) => item.getId() && !['post', 'category', 'author'].includes(item.getId()!),
+      ),
+    ])
+</file>
+
+<file path="tailwind.config.ts">
+import type { Config } from "tailwindcss";
+import typography from "@tailwindcss/typography";
+import daisyui from "daisyui";
+
+const config: Config = {
+  content: [
+    "./app/**/*.{js,ts,jsx,tsx}",
+    "./pages/**/*.{js,ts,jsx,tsx}",
+    "./components/**/*.{js,ts,jsx,tsx}",
+  ],
+  theme: {
+    extend: {},
+  },
+  plugins: [typography, daisyui], // ✅ Add both plugins
+};
+
+export default config;
+</file>
+
+<file path="tsconfig.json">
+{
+  "compilerOptions": {
+    "target": "ES2017",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "module": "esnext",
+    "moduleResolution": "bundler",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "preserve",
+    "incremental": true,
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ],
+    "paths": {
+      "@/*": ["./*"]
+    }
+  },
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
+  "exclude": ["node_modules"]
+}
+</file>
+
+<file path=".gitignore">
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# dependencies
+/node_modules
+/.pnp
+.pnp.*
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/versions
+
+# testing
+/coverage
+
+# next.js
+/.next/
+/out/
+
+# production
+/build
+
+# misc
+.DS_Store
+*.pem
+
+# debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# env files (can opt-in for committing if needed)
+.env*
+
+# vercel
+.vercel
+
+# typescript
+*.tsbuildinfo
+next-env.d.ts
+
+.vercel
+</file>
+
+<file path="app/audio/page.tsx">
+import { sanityFetch } from "@/sanity/lib/live";
+import { Title } from "@/components/title/title";
+import { AUDIOS_QUERY } from "@/sanity/lib/queries";
+import AudioPage from "@/components/audioFile/audio";
+
+
+
+export default async function Page() {
+  const {data: audios} = await sanityFetch({query: AUDIOS_QUERY});
+
+  return (
+    <main className="container mx-auto grid grid-cols-1 gap-6 p-6">
+      <Title>Audio Index</Title>
+      <div className="flex flex-col gap-12 py-12">
+        {audios.map((audio) => (
+          <AudioPage key={audio._id} {...audio} />
+        ))}
+      </div>
+    </main>
+  )
+}
+</file>
+
+<file path="app/names-of-Allah/page.tsx">
+import NinetyNineNamesPage from "@/components/99names/99names";
+
+import React from 'react'
+
+export default function page () {
+  return (
+    
+    <NinetyNineNamesPage/>
+  )
+}
+</file>
+
+<file path="components/audioFile/audio.tsx">
+import {Slug} from "@/sanity/types"
+
+
+
+type AudioProps = {
+    description: string | null;
+    _id: string;
+    audio: string | null;
+    title: string | null;
+    slug: Slug | null;
+  };
+  
+
+export default async function AudioPage({ description, title, _id, audio}: AudioProps ) {
+
+  return (
+
+    <li className="bg-white p-4 rounded-lg" key={_id}>
+          
+              <h2 className="text-xl font-semibold">{title}</h2>
+                          
+                <p className="text-gray-500">
+                  {description}
+                </p>
+                {
+                    audio ? (
+                        <audio controls>
+                          <source src={audio} type="audio/OGG" />
+                          Your browser does not support the audio element.
+                        </audio>
+                      ) : (
+                        <p>Loading audio...</p>
+                      )
+                }
+                    </li>
+
+
+  );
+}
+</file>
+
+<file path="components/card/beautiful-names.tsx">
+import React from 'react'
+import { AllahName } from '../99names/99names';
+
+export const BeautifulNames = (props: AllahName) => {
+    const {name, en, transliteration} = props;
+  return (
+    <div className="p-4 bg-indigo-100 rounded-lg shadow transition-transform duration-300 hover:scale-105">
+                <div dir="rtl" className="text-right">
+                    <h2 className="text-lg  font-semibold">{name}</h2>
+                </div>
+                <div dir="ltr">
+                    <p className="text-sm text-rose-600">{transliteration}</p>
+                    <p className="text-sm">{en.meaning}</p>
+                </div>
+              </div>
+  )
+};
+</file>
+
+<file path="components/post/post.tsx">
+import { Author } from "../author/author";
+import { Categories } from "../categories/categories";
+import { components } from "@/PortableTextComponent";
+import { PortableText } from "next-sanity";
+import { POST_QUERYResult } from "@/sanity/types";
+import { PublishedAt } from "../publishedat/publishedat";
+import { Title } from "../title/title";
+import { urlFor } from "@/sanity/lib/image";
+import Image from "next/image";
+
+export function Post(props: NonNullable<POST_QUERYResult>) {
+  const { title, author, mainImage, body, publishedAt, categories } = props;
+
+  return (
+    <article className="grid lg:grid-cols-12 gap-4 gap-y-3">
+      <header className="lg:col-span-12 flex flex-row gap-2 justify-between items-center">
+        <div className="flex flex-col gap-1 items-center">
+          <Categories categories={categories} />
+          <Title>{title}</Title>
+        </div>
+        <div className="flex gap-4 items-center">
+          <Author author={author} />
+          <PublishedAt publishedAt={publishedAt} />
+        </div>
+      </header>
+      {mainImage ? (
+      <figure className="float-start lg:col-span-2 flex flex-col gap-2 items-start">
+          <Image
+            src={urlFor(mainImage).width(200).height(200).url()}
+            width={200}
+            height={200}
+            alt=""
+          />
+          <div></div>
+      </figure>
+      ) : null}
+      {body ? (
+      <div className="lg:col-span-10 lg:col-start-3 prose lg:prose-lg">
+          <PortableText value={body} components={components} />
+      </div>
+      ) : null}
+    </article>
+  );
+}
+</file>
+
+<file path="components/postcard/postcard.tsx">
+import { Author } from '../author/author'
+import { Categories } from '../categories/categories'
+import { POSTS_QUERYResult } from '@/sanity/types'
+import { PublishedAt } from '../publishedat/publishedat'
+import { urlFor } from '@/sanity/lib/image'
+import Image from 'next/image'
+import Link from 'next/link'
+
+export function PostCard(props: POSTS_QUERYResult[0]) {
+  const { title, author, mainImage, publishedAt, categories } = props
+
+  return (
+    <Link className="group" href={`/pillars-of-islam/${props.slug!.current}`}>
+      <article className="flex flex-col-reverse gap-4 md:grid md:grid-cols-12 md:gap-0">
+        <div className="md:col-span-2 md:pt-1">
+          <Categories categories={categories} />
+        </div>
+        <div className="md:col-span-5 md:w-full">
+          <h2 className="text-2xl text-pretty font-semibold text-slate-800 group-hover:text-pink-600 transition-colors relative">
+            <span className="relative z-[1]">{title}</span>
+            <span className="bg-pink-50 z-0 absolute inset-0 rounded-lg opacity-0 transition-all group-hover:opacity-100 group-hover:scale-y-110 group-hover:scale-x-105 scale-75" />
+          </h2>
+          <div className="flex items-center mt-2 md:mt-6 gap-x-6">
+            <Author author={author} />
+            <PublishedAt publishedAt={publishedAt} />
+          </div>
+        </div>
+        <div className="md:col-start-9 md:col-span-4 rounded-lg overflow-hidden flex">
+          {mainImage ? (
+            <Image
+              src={urlFor(mainImage).width(400).height(200).url()}
+              width={400}
+              height={200}
+              alt={mainImage.alt || title || ''}
+            />
+          ) : null}
+        </div>
+      </article>
+    </Link>
+  )
+}
+</file>
+
+<file path="components/svg/crescent.tsx">
+import * as React from "react";
+
+export const Crescent: React.FC<React.SVGProps<SVGSVGElement>> = (props) => (
+  <svg
+    width="800px"
+    height="800px"
+    viewBox="0 0 75.99 75.99"
+    xmlns="http://www.w3.org/2000/svg"
+    xmlnsXlink="http://www.w3.org/1999/xlink"
+    baseProfile="full"
+    enableBackground="new 0 0 75.99 75.99"
+    xmlSpace="preserve"
+    {...props}
+  >
+    <path
+      fill="#000000"
+      fillOpacity={1}
+      strokeWidth={0.2}
+      strokeLinejoin="round"
+      d="M 41.1615,61.029C 28.0464,61.029 17.4145,50.3971 17.4145,37.2819C 17.4145,26.1675 25.0501,16.8364 35.3618,14.2482C 31.1173,18.5382 28.4964,24.4377 28.4964,30.9494C 28.4964,44.0645 39.1284,54.6964 52.2435,54.6964C 54.2442,54.6964 56.1871,54.449 58.0432,53.9831C 53.739,58.3336 47.765,61.029 41.1615,61.029 Z "
+    />
+  </svg>
+);
+
+
+
+
+export const Pray: React.FC<React.SVGProps<SVGSVGElement>> = (props) => (
+  <svg
+    id="Layer_1"
+    xmlns="http://www.w3.org/2000/svg"
+    xmlnsXlink="http://www.w3.org/1999/xlink"
+    x="0px"
+    y="0px"
+    viewBox="0 0 512 512"
+    enableBackground= "new 0 0 512 512"
+    xmlSpace="preserve"
+    {...props}
+  >
+    <rect
+      x={142.884}
+      y={129.039}
+      style={{
+        fill: "#FFD6A0",
+      }}
+      width={59.535}
+      height={166.698}
+    />
+    <path
+      style={{
+        fill: "#FFE6C6",
+      }}
+      d="M229.209,175.179c-13.407,0-24.594,9.984-26.5,22.882l-0.291,0.23v81.968h-35.721v-79.38 c0-16.92,3.969-27.386,20.175-48.198l61.601-85.046c12.092-15.486,9.314-38.048-6.173-50.138 c-15.485-12.092-38.048-9.314-50.138,6.171l-77.125,105.505c-8.986,12.293-13.829,27.124-13.829,42.351v195.655l71.442,71.442 l58.55-50.186c15.74-13.492,24.799-33.188,24.799-53.92V201.969C256,187.235,243.944,175.179,229.209,175.179z"
+    />
+    <rect
+      x={55.503}
+      y={306.589}
+      transform="matrix(-0.7071 0.7071 -0.7071 -0.7071 468.2601 603.7747)"
+      style={{
+        fill: "#AED5F3",
+      }}
+      width={107.162}
+      height={184.556}
+    />
+    <rect
+      x={65.968}
+      y={331.851}
+      transform="matrix(-0.7071 0.7071 -0.7071 -0.7071 443.0089 664.7574)"
+      style={{
+        fill: "#78B9EB",
+      }}
+      width={35.721}
+      height={184.556}
+    />
+    <rect
+      x={309.581}
+      y={129.039}
+      style={{
+        fill: "#FFD6A0",
+      }}
+      width={59.535}
+      height={166.698}
+    />
+    <path
+      style={{
+        fill: "#FFE6C6",
+      }}
+      d="M282.791,175.179c13.407,0,24.593,9.984,26.5,22.882l0.291,0.23v81.968h35.721v-79.38 c0-16.92-3.969-27.386-20.175-48.198l-61.601-85.044c-12.092-15.486-9.314-38.048,6.171-50.138 c15.486-12.092,38.048-9.314,50.139,6.171l77.124,105.505c8.987,12.292,13.83,27.123,13.83,42.35v195.655l-71.442,71.442 l-58.55-50.186C265.058,374.943,256,355.247,256,334.516V201.969C256,187.235,268.056,175.179,282.791,175.179z"
+    />
+    <rect
+      x={349.327}
+      y={306.601}
+      transform="matrix(0.7071 0.7071 -0.7071 0.7071 400.059 -168.0703)"
+      style={{
+        fill: "#AED5F3",
+      }}
+      width={107.162}
+      height={184.556}
+    />
+    <rect
+      x={410.303}
+      y={331.873}
+      transform="matrix(0.7071 0.7071 -0.7071 0.7071 425.3262 -178.526)"
+      style={{
+        fill: "#78B9EB",
+      }}
+      width={35.721}
+      height={184.556}
+    />
+    <g>
+      <rect
+        y={107.214}
+        style={{
+          fill: "#C9E3F7",
+        }}
+        width={59.535}
+        height={35.721}
+      />
+      <rect
+        x={13.961}
+        y={25.843}
+        transform="matrix(-0.9428 -0.3333 0.3333 -0.9428 70.3896 99.4825)"
+        style={{
+          fill: "#C9E3F7",
+        }}
+        width={59.534}
+        height={35.72}
+      />
+      <rect
+        x={452.465}
+        y={107.214}
+        style={{
+          fill: "#C9E3F7",
+        }}
+        width={59.535}
+        height={35.721}
+      />
+      <rect
+        x={450.402}
+        y={13.937}
+        transform="matrix(-0.3333 -0.9428 0.9428 -0.3333 583.1323 499.7556)"
+        style={{
+          fill: "#C9E3F7",
+        }}
+        width={35.72}
+        height={59.533}
+      />
+    </g>
+  </svg>
+);
+
+
+
+export const Salat: React.FC<React.SVGProps<SVGSVGElement>> = (props) => (
+  <svg
+    width="64px"
+    height="64px"
+    viewBox="0 0 64 64"
+    xmlns="http://www.w3.org/2000/svg"
+    {...props}
+  >
+    <title>{"pray-down"}</title>
+    <g id="pray-down">
+      <polyline
+        points="38 38 56 38 63 59 1 59 8 38 15.403 38"
+        style={{
+          fill: "none",
+          stroke: "#000",
+          strokeLinecap: "round",
+          strokeLinejoin: "round",
+          strokeWidth: 2,
+        }}
+      />
+      <path
+        d="M38,38m-5.284,7.347q.57.213,1.15.386l2.768,1.023"
+        style={{
+          fill: "none",
+          stroke: "#000",
+          strokeLinecap: "round",
+          strokeLinejoin: "round",
+          strokeWidth: 2,
+        }}
+      />
+      <path
+        d="M38,38l-5.277-2.072C30.11,33.426,22,32,17.843,35.236h0a22.013,22.013,0,0,0-2.44,2.839,4.738,4.738,0,0,0-.361,5.377A7.149,7.149,0,0,0,21,47l-5,1L7,50,3,53l24.447-.021a5.554,5.554,0,0,0,5.527-6.1,5.715,5.715,0,0,0-5.766-5.008h-.08A4.584,4.584,0,0,1,24.1,40.731l-5.942-5.218"
+        style={{
+          fill: "none",
+          stroke: "#000",
+          strokeLinecap: "round",
+          strokeLinejoin: "round",
+          strokeWidth: 2,
+        }}
+      />
+      <line
+        x1={14}
+        y1={19}
+        x2={14}
+        y2={22}
+        style={{
+          fill: "none",
+          stroke: "#000",
+          strokeLinecap: "round",
+          strokeLinejoin: "round",
+          strokeWidth: 2,
+        }}
+      />
+      <line
+        x1={14}
+        y1={26}
+        x2={14}
+        y2={29}
+        style={{
+          fill: "none",
+          stroke: "#000",
+          strokeLinecap: "round",
+          strokeLinejoin: "round",
+          strokeWidth: 2,
+        }}
+      />
+      <line
+        x1={12}
+        y1={24}
+        x2={9}
+        y2={24}
+        style={{
+          fill: "none",
+          stroke: "#000",
+          strokeLinecap: "round",
+          strokeLinejoin: "round",
+          strokeWidth: 2,
+        }}
+      />
+      <line
+        x1={19}
+        y1={24}
+        x2={16}
+        y2={24}
+        style={{
+          fill: "none",
+          stroke: "#000",
+          strokeLinecap: "round",
+          strokeLinejoin: "round",
+          strokeWidth: 2,
+        }}
+      />
+      <circle
+        cx={55.5}
+        cy={6.5}
+        r={2.5}
+        style={{
+          fill: "none",
+          stroke: "#000",
+          strokeLinecap: "round",
+          strokeLinejoin: "round",
+          strokeWidth: 2,
+        }}
+      />
+      <circle cx={32} cy={12} r={1} />
+      <circle cx={45} cy={23} r={1} />
+      <circle cx={29} cy={23} r={1} />
+      <line
+        x1={46}
+        y1={47.975}
+        x2={46}
+        y2={52}
+        style={{
+          fill: "#6b4f5b",
+          stroke: "#000",
+          strokeLinejoin: "round",
+          strokeWidth: 2,
+        }}
+      />
+      <line
+        x1={46}
+        y1={42}
+        x2={46}
+        y2={43.214}
+        style={{
+          fill: "#6b4f5b",
+          stroke: "#000",
+          strokeLinejoin: "round",
+          strokeWidth: 2,
+        }}
+      />
+      <path
+        d="M38.109,43.449A5.3,5.3,0,0,0,37,46.76v4A1.242,1.242,0,0,0,38.242,52h7.622c.046,0,.09-.015.136-.017V52h6v-.774"
+        style={{
+          fill: "none",
+          stroke: "#000",
+          strokeLinecap: "round",
+          strokeLinejoin: "round",
+          strokeWidth: 2,
+        }}
+      />
+      <path
+        d="M52,46.51V44.534A2.535,2.535,0,0,0,49.466,42H46v.016c-.046,0-.09-.016-.136-.016H44.5"
+        style={{
+          fill: "none",
+          stroke: "#000",
+          strokeLinecap: "round",
+          strokeLinejoin: "round",
+          strokeWidth: 2,
+        }}
+      />
+      <polyline
+        points="36 42 52.631 51.461 55.492 49.135 38 38"
+        style={{
+          fill: "none",
+          stroke: "#000",
+          strokeLinecap: "round",
+          strokeLinejoin: "round",
+          strokeWidth: 2,
+        }}
+      />
+      <path
+        d="M52.631,51.461,55,53H60a.709.709,0,0,0,.317-1.344l-4.82-2.41"
+        style={{
+          fill: "none",
+          stroke: "#000",
+          strokeLinecap: "round",
+          strokeLinejoin: "round",
+          strokeWidth: 2,
+        }}
+      />
+      <line
+        x1={24}
+        y1={47}
+        x2={26}
+        y2={47}
+        style={{
+          fill: "none",
+          stroke: "#000",
+          strokeLinecap: "round",
+          strokeLinejoin: "round",
+          strokeWidth: 2,
+        }}
+      />
+    </g>
+  </svg>
+);
+
+
+export const Story: React.FC<React.SVGProps<SVGSVGElement>> = (props) => (
+  <svg
+    id="Capa_1"
+    xmlns="http://www.w3.org/2000/svg"
+    xmlnsXlink="http://www.w3.org/1999/xlink"
+    x="0px"
+    y="0px"
+    viewBox="0 0 490.858 490.858"
+    enableBackground= "new 0 0 490.858 490.858"
+    xmlSpace="preserve"
+    {...props}
+  >
+    <g>
+      <path d="M132.471,175.624c2.347,0,4.25-1.902,4.25-4.25c0-49,109.347-98.713,110.452-99.209c2.141-0.963,3.097-3.478,2.134-5.619 c-0.96-2.141-3.476-3.096-5.617-2.135c-4.715,2.118-115.468,52.494-115.468,106.963 C128.221,173.721,130.124,175.624,132.471,175.624z" />
+      <path d="M427.138,166.452h-7.393c-2.244-34.126-31.379-72.098-86.688-112.948C290.7,22.217,247.758,0.662,247.329,0.447 c-1.195-0.596-2.602-0.596-3.797,0c-0.429,0.215-43.372,21.771-85.73,53.056c-55.308,40.851-84.444,78.823-86.688,112.949H63.72 c-2.347,0-4.25,1.902-4.25,4.25v315.906c0,2.348,1.903,4.25,4.25,4.25c2.347,0,4.25-1.902,4.25-4.25v-15.576h25.332v15.576 c0,2.348,1.903,4.25,4.25,4.25s4.25-1.902,4.25-4.25V175.624h2.718c2.347,0,4.25-1.902,4.25-4.25 c0-57.963,120.385-118.613,136.661-126.543c16.275,7.93,136.659,68.58,136.659,126.543c0,2.348,1.902,4.25,4.25,4.25h2.717v310.984 c0,2.348,1.902,4.25,4.25,4.25c2.348,0,4.25-1.902,4.25-4.25v-15.576h25.332v15.576c0,2.348,1.902,4.25,4.25,4.25 c2.348,0,4.25-1.902,4.25-4.25V170.702C431.388,168.354,429.486,166.452,427.138,166.452z M397.556,201.698h25.332v242.834h-25.332 V201.698z M93.302,444.532H67.97V201.698h25.332V444.532z M67.97,462.532v-9.5h25.332v9.5H67.97z M247.232,36.264 c-1.143-0.533-2.461-0.533-3.604,0c-5.73,2.683-137.611,65.164-143.178,130.859h-2.899c-2.347,0-4.25,1.902-4.25,4.25v21.824H67.97 v-18.246h7.253c2.347,0,4.25-1.902,4.25-4.25c0-73.387,147.407-152.072,165.957-161.678 c18.551,9.602,165.956,88.265,165.956,161.678c0,2.348,1.902,4.25,4.25,4.25h7.252v18.246h-25.332v-21.824 c0-2.348-1.902-4.25-4.25-4.25h-2.898C384.842,101.428,252.963,38.947,247.232,36.264z M397.556,462.532v-9.5h25.332v9.5H397.556z" />
+      <path d="M202.398,455.659h-28.876c-2.347,0-4.25,1.902-4.25,4.25c0,2.348,1.903,4.25,4.25,4.25h28.876 c2.347,0,4.25-1.902,4.25-4.25C206.648,457.561,204.745,455.659,202.398,455.659z" />
+      <path d="M314.862,345.038c3.346-9.084,13.531-36.279,13.531-36.279c0.547-1.467,0.243-3.116-0.791-4.292 c-1.033-1.176-2.633-1.689-4.154-1.333l-24.145,5.617l-1.376-2.944c-0.851-1.817-2.859-2.795-4.808-2.341l-66.739,15.433 c-1.25,0.289-2.302,1.127-2.864,2.28c-0.562,1.153-0.572,2.498-0.029,3.66l10.085,21.576l-11.178,2.566 c0.097-5.789,0.086-15.92-0.781-26.504c-1.228-15.002-3.743-25.642-7.618-32.129c4.502-1.077,8.86-2.846,12.922-5.332 c10.146-6.209,17.268-15.997,20.052-27.563c3.53-14.672-0.744-30.295-11.137-41.188l-2.461-20.588 c-0.579-4.834-4.683-8.479-9.547-8.479c-0.381,0-0.767,0.022-1.148,0.068l-53.331,6.379c-5.268,0.63-9.04,5.429-8.409,10.695 l2.761,23.097c-1.428,2.921-2.556,5.993-3.32,9.17c-2.784,11.564-0.898,23.521,5.311,33.668c1.389,2.27,2.967,4.38,4.694,6.332 c-9.878,6.466-31.837,25.247-37.247,66.902c-2.584,19.898-3.879,48.752-0.614,65.078l0.163,0.817 c1.733,8.713,4.068,20.39,16.009,26.631c-4.562,1.736-8.969,4.168-12.499,7.587c-5.139,4.979-7.745,11.281-7.745,18.732v11.44 c0,1.129,0.449,2.211,1.248,3.008c0.797,0.796,1.876,1.242,3.002,1.242c0.002,0,0.005,0,0.008,0l122.372-0.222 c26.942,0,43.096-12.719,44.318-34.896c0.952-17.264-1.818-38.057-31.943-45.676c-1.293-0.327-2.62-0.643-3.972-0.963 c-8.753-2.077-17.748-4.23-24.746-11.262l34.529-7.997c8.372-1.923,13.622-10.3,11.703-18.674l-0.962-4.192l27.834-6.475 C314.179,347.031,314.485,346.061,314.862,345.038z M170.356,202.086l53.33-6.379c0.047-0.005,0.094-0.008,0.14-0.008 c0.564,0,1.04,0.425,1.107,0.988l2.143,17.927l-55.314,8.679l-0.412-3.447l17.666-2.392c2.326-0.316,3.956-2.456,3.641-4.782 c-0.314-2.326-2.456-3.948-4.782-3.642l-17.534,2.373l-0.965-8.071C169.303,202.719,169.742,202.16,170.356,202.086z  M168.641,238.598c0.544-2.263,1.309-4.462,2.269-6.567l59.343-9.311c8.008,8.784,11.247,21.137,8.454,32.744 c-4.65,19.318-24.146,31.254-43.467,26.6c-9.357-2.252-17.277-8.014-22.301-16.224C167.915,257.63,166.388,247.956,168.641,238.598 z M261.522,404.562c1.31,0.311,2.597,0.616,3.85,0.933c22.574,5.71,26.536,18.907,25.541,36.967 c-1.225,22.203-20.161,26.864-35.84,26.864l-118.122,0.214v-5.381h23.311c2.347,0,4.25-1.902,4.25-4.25 c0-2.348-1.903-4.25-4.25-4.25h-22.13c0.851-2.2,2.161-4.166,3.966-5.917c7.363-7.145,20.64-8.915,27.711-9.341 c0.119,0.001,0.23,0.007,0.35,0.007c1.514,0,3.099-0.044,4.746-0.133c37.783-2.058,44.941-0.89,48.381-0.328 c1.053,0.172,2.048,0.334,3.373,0.334c2.347,0,4.25-1.902,4.25-4.25c0-2.348-1.903-4.25-4.25-4.25c-0.61,0-1.055-0.068-2.004-0.224 c-4.016-0.655-11.489-1.871-50.034,0.221c-0.635-0.017-2.617-0.039-5.427,0.133c-23.4-0.219-25.725-11.871-28.171-24.163 l-0.165-0.825c-2.939-14.698-1.869-42.476,0.708-62.317c5.42-41.735,28.435-58.036,35.278-62.015 c4.815,3.635,10.365,6.283,16.407,7.737c3.486,0.84,7.008,1.254,10.505,1.254c0.04,0,0.079-0.004,0.119-0.004 c5.138,2.645,8.381,17.58,9.587,35.34l-4.753-20.712c-1.635-7.125-7.876-12.102-15.179-12.102c-1.171,0-2.347,0.134-3.497,0.397 l-7.364,1.691c-4.057,0.931-7.509,3.386-9.719,6.913c-2.21,3.527-2.915,7.704-1.983,11.76l15.215,66.31 c1.634,7.124,7.875,12.099,15.175,12.099h0.001c1.172,0,2.35-0.134,3.507-0.399l24.487-5.671 C238.47,399.09,251.182,402.108,261.522,404.562z M271.357,368.75l-68.402,15.843c-0.527,0.121-1.063,0.182-1.596,0.182 c-3.314,0-6.148-2.261-6.891-5.499l-15.215-66.311c-0.423-1.844-0.104-3.742,0.901-5.345c0.33-0.526,0.726-0.994,1.167-1.408 l7.023,34.388c0.411,2.013,2.182,3.4,4.16,3.4c0.282,0,0.568-0.028,0.855-0.087c2.3-0.47,3.783-2.715,3.314-5.015l-7.257-35.532 l2.52-0.579c0.526-0.121,1.063-0.183,1.595-0.183c3.316,0,6.15,2.263,6.894,5.502l10.959,47.762 c0.253,1.099,0.931,2.053,1.886,2.651c0.955,0.598,2.109,0.794,3.207,0.541l50.03-11.483c0.526-0.121,1.063-0.182,1.595-0.182 c3.315,0,6.15,2.262,6.895,5.5l1.69,7.363C277.557,364.066,275.171,367.874,271.357,368.75z M281.235,346.084 c-2.789-4.396-7.664-7.189-13.134-7.189c-1.17,0-2.347,0.133-3.496,0.396l-22.559,5.178l-8.635-18.473l58.271-13.475l1.365,2.921 c0.002,0.004,0.004,0.007,0.005,0.011l11.755,25.147L281.235,346.084z M310.439,332.572l-7.456-15.95l14.679-3.415L310.439,332.572 z" />
+      <path d="M375.208,185.866c-2.348,0-4.25,1.902-4.25,4.25v132c0,2.348,1.902,4.25,4.25,4.25c2.348,0,4.25-1.902,4.25-4.25v-132 C379.458,187.768,377.555,185.866,375.208,185.866z" />
+      <path d="M375.208,343.358c-2.348,0-4.25,1.902-4.25,4.25v35.524c0,2.348,1.902,4.25,4.25,4.25c2.348,0,4.25-1.902,4.25-4.25 v-35.524C379.458,345.26,377.555,343.358,375.208,343.358z" />
+    </g>
+  </svg>
+);
+
+
+
+export const Hadith:React.FC<React.SVGProps<SVGSVGElement>> = (props) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    xmlnsXlink="http://www.w3.org/1999/xlink"
+    id="Capa_1"
+    x="0px"
+    y="0px"
+    viewBox="0 0 460 460"
+    enableBackground= "new 0 0 460 460"
+    xmlSpace="preserve"
+    width={512}
+    height={512}
+    {...props}
+  >
+    <g id="XMLID_244_">
+      <path
+        id="XMLID_227_"
+        style={{
+          fill: "#59595B",
+        }}
+        d="M460,300v20c0,16.569-13.431,30-30,30h-10c5.523,0,10,4.477,10,10v70   c0,5.523-4.477,10-10,10H40c-5.523,0-10-4.477-10-10v-70c0-5.523,4.477-10,10-10h70c-5.523,0-10-4.477-10-10   c0-5.523,4.477-10,10-10h10v-40h-10c-5.523,0-10-4.477-10-10c0-5.523,4.477-10,10-10H30c-16.569,0-30-13.431-30-30v-40   c0-16.569,13.431-30,30-30h120v-70H30C13.431,100,0,86.569,0,70V50c0-16.569,13.431-30,30-30h290h10h20c5.523,0,10,4.477,10,10   c0,5.523-4.477,10-10,10h-10v40h10c5.523,0,10,4.477,10,10c0,5.523-4.477,10-10,10h20v70h-20c5.523,0,10,4.477,10,10   c0,5.523-4.477,10-10,10v60c5.523,0,10,4.477,10,10c0,5.523-4.477,10-10,10h80C446.569,270,460,283.431,460,300z"
+      />
+      <path
+        id="XMLID_243_"
+        style={{
+          fill: "#C18F2B",
+        }}
+        d="M120,440H90v-90h30V440z M370,350h-30v90h30V350z"
+      />
+      <path
+        id="XMLID_226_"
+        style={{
+          fill: "#732D21",
+        }}
+        d="M370,170h-20c5.523,0,10,4.477,10,10c0,5.523-4.477,10-10,10v60   c5.523,0,10,4.477,10,10c0,5.523-4.477,10-10,10h80c16.569,0,30,13.431,30,30v20c0,16.569-13.431,30-30,30H140h-10h-20   c-5.523,0-10-4.477-10-10c0-5.523,4.477-10,10-10h10v-40h-10c-5.523,0-10-4.477-10-10c0-5.523,4.477-10,10-10H30   c-16.569,0-30-13.431-30-30v-40c0-16.569,13.431-30,30-30h40c-5.523,0-10-4.477-10-10v-50c0-5.523,4.477-10,10-10H30   C13.431,100,0,86.569,0,70V50c0-16.569,13.431-30,30-30h290h10h20c5.523,0,10,4.477,10,10c0,5.523-4.477,10-10,10h-10v40h10   c5.523,0,10,4.477,10,10c0,5.523-4.477,10-10,10h20h80c5.523,0,10,4.477,10,10v50c0,5.523-4.477,10-10,10H370z"
+      />
+      <path
+        id="XMLID_225_"
+        style={{
+          fill: "#8F8D7E",
+        }}
+        d="M440,305v10c0,8.284-6.716,15-15,15H137.318c1.703-5.885,2.682-12.712,2.682-20   s-0.979-14.115-2.682-20H425C433.284,290,440,296.716,440,305z M20,55v10c0,8.284,6.716,15,15,15h287.682   C320.979,74.115,320,67.288,320,60s0.979-14.115,2.682-20H35C26.716,40,20,46.716,20,55z"
+      />
+      <path
+        id="XMLID_88_"
+        style={{
+          fill: "#C6C2AC",
+        }}
+        d="M420,305v10c0,8.284-6.716,15-15,15H117.318c1.703-5.885,2.682-12.712,2.682-20   s-0.979-14.115-2.682-20H405C413.284,290,420,296.716,420,305z M40,55v10c0,8.284,6.716,15,15,15h287.682   C340.979,74.115,340,67.288,340,60s0.979-14.115,2.682-20H55C46.716,40,40,46.716,40,55z"
+      />
+      <path
+        id="XMLID_221_"
+        style={{
+          fill: "#8F8D7E",
+        }}
+        d="M363.659,310c0,2.761-33.579,5-75,5s-75-2.239-75-5s33.579-5,75-5   S363.659,307.239,363.659,310z M305,50c-41.421,0-75,2.239-75,5s33.579,5,75,5c12.648,0,24.557-0.21,35.01-0.578   c0.022-3.037,0.216-5.988,0.559-8.825C329.984,50.216,317.872,50,305,50z"
+      />
+      <path
+        id="XMLID_1408_"
+        style={{
+          fill: "#B04230",
+        }}
+        d="M320,380l-30-10l-30,10v-65c0-2.761,2.239-5,5-5h50c2.761,0,5,2.239,5,5V380z"
+      />
+      <path
+        id="XMLID_1407_"
+        style={{
+          fill: "#677445",
+        }}
+        d="M460,110v50c0,5.523-4.477,10-10,10H350c5.523,0,10,4.477,10,10   c0,5.523-4.477,10-10,10v60c5.523,0,10,4.477,10,10c0,5.523-4.477,10-10,10h-10h-10H30c-16.569,0-30-13.431-30-30v-40   c0-16.569,13.431-30,30-30h40c-5.523,0-10-4.477-10-10v-50c0-5.523,4.477-10,10-10h380C455.523,100,460,104.477,460,110z"
+      />
+      <path
+        id="XMLID_1357_"
+        style={{
+          fill: "#798751",
+        }}
+        d="M370,170H150v-70h220V170z M120,100h-20v70h20V100z M430,100h-40v70h40V100z"
+      />
+      <path
+        id="XMLID_1401_"
+        style={{
+          fill: "#B14724",
+        }}
+        d="M360,260c0,5.523-4.477,10-10,10h-10h-10H30c-16.569,0-30-13.431-30-30v-40   c0-16.569,13.431-30,30-30h300h10h10c5.523,0,10,4.477,10,10c0,5.523-4.477,10-10,10v60C355.523,250,360,254.477,360,260z"
+      />
+      <path
+        id="XMLID_1395_"
+        style={{
+          fill: "#8F8D7E",
+        }}
+        d="M32.318,190H320c-1.703,8.827-2.682,19.067-2.682,30   c0,10.932,0.979,21.173,2.682,30H32.318c-8.284,0-15-10.074-15-22.5v-15C17.318,200.074,24.033,190,32.318,190z"
+      />
+      <path
+        id="XMLID_1371_"
+        style={{
+          fill: "#C6C2AC",
+        }}
+        d="M55.496,190h297.187c-1.759,8.827-2.771,19.067-2.771,30   c0,10.932,1.012,21.173,2.771,30H55.496C46.938,250,40,239.926,40,227.5v-15C40,200.074,46.938,190,55.496,190z"
+      />
+      <path
+        id="XMLID_1361_"
+        style={{
+          fill: "#8F8D7E",
+        }}
+        d="M168.659,215c41.421,0,75,2.239,75,5c0,2.761-33.579,5-75,5s-75-2.239-75-5   C93.659,217.239,127.237,215,168.659,215z M347.682,200c-41.421,0-75,2.239-75,5s33.579,5,75,5c0.848,0,1.687-0.002,2.528-0.004   c0.2-3.437,0.494-6.778,0.886-9.99C349.964,200.002,348.827,200,347.682,200z M350.21,230.004c-0.841-0.002-1.68-0.004-2.528-0.004   c-41.421,0-75,2.239-75,5s33.579,5,75,5c1.145,0,2.281-0.002,3.414-0.006C350.704,236.782,350.41,233.441,350.21,230.004z"
+      />
+    </g>
+  </svg>
+);
+
+
+
+export const Quran:React.FC<React.SVGProps<SVGSVGElement>> = (props) => (
+  <svg
+    id="Capa_1"
+    xmlns="http://www.w3.org/2000/svg"
+    xmlnsXlink="http://www.w3.org/1999/xlink"
+    x="0px"
+    y="0px"
+    viewBox="0 0 484.228 484.228"
+    enableBackground= "new 0 0 484.228 484.228"
+    xmlSpace="preserve"
+    {...props}
+  >
+    <g>
+      <path d="M484.06,210.989L438.305,52.856c-0.328-1.133-1.112-2.079-2.164-2.611c-1.054-0.533-2.278-0.605-3.385-0.197l-12.411,4.561 l-1.982-6.582c-0.339-1.127-1.131-2.063-2.186-2.584c-1.055-0.522-2.279-0.583-3.381-0.168 c-29.582,11.134-44.034,14.763-107.786,22.14c-40.168,4.647-56.44,21.963-62.954,33.842c-6.469-11.884-22.678-29.195-62.839-33.842 c-63.753-7.377-78.205-11.006-107.787-22.14c-1.101-0.415-2.326-0.354-3.381,0.168c-1.055,0.521-1.847,1.457-2.186,2.584 l-1.976,6.562l-12.423-4.543c-1.105-0.403-2.332-0.331-3.382,0.201c-1.051,0.533-1.833,1.478-2.161,2.609L0.168,210.989 c-0.638,2.207,0.593,4.521,2.779,5.226l141.114,45.496l-59.117,47.54c-1.004,0.807-1.587,2.025-1.587,3.312v32.49 c0,1.709,1.023,3.252,2.599,3.916c1.574,0.664,3.394,0.32,4.617-0.872l26.274-25.606c4.096-3.976,10.665-3.88,14.64,0.216 l5.087,5.24c1.926,1.983,2.964,4.599,2.923,7.364c-0.041,2.765-1.156,5.348-3.15,7.284l-51.71,50.528 c-0.818,0.799-1.279,1.896-1.279,3.04v38.814c0,1.698,1.011,3.233,2.569,3.904c0.542,0.233,1.113,0.346,1.68,0.346 c1.066,0,2.117-0.401,2.922-1.163l151.508-143.381l151.74,143.383c0.805,0.761,1.855,1.161,2.92,1.161 c0.567,0,1.14-0.114,1.681-0.347c1.559-0.671,2.568-2.206,2.568-3.903v-38.814c0-1.144-0.461-2.24-1.279-3.04l-51.722-50.538 c-1.983-1.926-3.099-4.509-3.14-7.274c-0.041-2.765,0.997-5.38,2.923-7.364l5.087-5.24c3.976-4.096,10.542-4.193,14.634-0.223 l26.281,25.613c1.224,1.192,3.045,1.536,4.617,0.872c1.575-0.664,2.599-2.207,2.599-3.916v-32.49c0-1.286-0.582-2.503-1.583-3.309 l-59.081-47.609l140.999-45.429C483.467,215.51,484.697,213.196,484.06,210.989z M389.745,110.873h38.663l2.408,8h-6.571 c-2.348,0-4.25,1.903-4.25,4.25c0,2.347,1.902,4.25,4.25,4.25h9.131l12.796,42.5h-42.927c-2.348,0-4.25,1.903-4.25,4.25 c0,2.347,1.902,4.25,4.25,4.25h45.485l4.066,13.506c-21.982,7.912-73.793,23.604-147.522,27.514 c-32.093,1.702-48.683,13.718-56.95,23.5c-0.729,0.862-1.407,1.723-2.04,2.577v-85.096h63.461c2.348,0,4.25-1.903,4.25-4.25 c0-2.347-1.902-4.25-4.25-4.25h-63.461v-15.438c0.561-3.152,7.102-31.816,59.703-37.902c61.527-7.119,83.698-13.038,111.668-23.373 l8.193,27.212h-36.104c-2.348,0-4.25,1.903-4.25,4.25C385.495,108.97,387.398,110.873,389.745,110.873z M33.24,185.873h26.505 c2.348,0,4.25-1.903,4.25-4.25c0-2.347-1.902-4.25-4.25-4.25H35.799l7.376-24.5h62.07c2.348,0,4.25-1.903,4.25-4.25 c0-2.347-1.902-4.25-4.25-4.25H45.735l4.968-16.5h23.043c2.348,0,4.25-1.903,4.25-4.25c0-2.347-1.902-4.25-4.25-4.25H53.261 l13.492-44.813c29.514,10.936,51.988,17.089,111.488,23.974c52.74,6.103,59.033,34.906,59.543,37.888v48.952h-15.039 c-2.348,0-4.25,1.903-4.25,4.25c0,2.347,1.902,4.25,4.25,4.25h15.039v5.5h-34.039c-2.348,0-4.25,1.903-4.25,4.25 c0,2.347,1.902,4.25,4.25,4.25h34.039v37.507c-0.609-0.823-1.256-1.65-1.954-2.48c-8.23-9.784-24.779-21.805-56.876-23.507 c-73.731-3.91-125.541-19.602-147.522-27.514L33.24,185.873z M305.987,75.857c61.594-7.127,77.914-10.836,105.544-21.039 l3.669,12.187c-28.124,10.427-48.897,15.992-110.19,23.084c-33.354,3.859-50.23,16.454-58.727,27.417v-3.748 C246.851,110.584,253.41,81.941,305.987,75.857z M72.697,54.819c27.63,10.203,43.95,13.912,105.545,21.039 c52.74,6.102,59.033,34.906,59.543,37.888v3.671c-8.477-10.944-25.307-23.479-58.566-27.327 c-59.225-6.853-80.292-12.641-110.01-23.685L72.697,54.819z M52.822,59.593l8.611,3.149L22.139,193.26 c-0.645,2.141,0.479,4.415,2.572,5.203c19.769,7.441,74.328,25.204,153.794,29.418c52.999,2.811,58.835,34.556,59.279,37.671 v17.445L9.48,209.39L52.822,59.593z M91.858,397.951l50.42-49.268c3.613-3.507,5.644-8.211,5.719-13.246 c0.075-5.035-1.816-9.798-5.322-13.411l-5.087-5.24c-7.239-7.459-19.198-7.637-26.665-0.389l-19.064,18.579v-20.378l61.886-49.766 l17.631,5.685l-19.632,19.598c-1.661,1.658-1.663,4.349-0.005,6.01c0.83,0.831,1.919,1.247,3.008,1.247 c1.086,0,2.173-0.414,3.003-1.242l22.721-22.682l23.368,7.534l-42.849,42.886c-1.658,1.661-1.657,4.352,0.003,6.01 c0.83,0.829,1.917,1.244,3.004,1.244c1.088,0,2.177-0.415,3.007-1.246l45.923-45.964l20.979,6.764L91.858,425.103V397.951z  M392.445,314.595v20.381l-19.071-18.586c-7.459-7.24-19.418-7.063-26.659,0.395l-5.087,5.24 c-3.507,3.613-5.398,8.376-5.322,13.411c0.075,5.035,2.106,9.739,5.708,13.236l50.432,49.278v27.162L250.173,290.676l26.105-8.411 l26.712,26.712c0.829,0.83,1.917,1.245,3.005,1.245s2.176-0.415,3.005-1.245c1.66-1.66,1.66-4.351,0-6.011l-23.63-23.63 l45.233-14.574L392.445,314.595z M246.284,282.998v-17.436c0.469-3.178,6.484-34.874,59.44-37.682 c79.464-4.214,134.024-21.977,153.794-29.418c2.093-0.788,3.217-3.062,2.572-5.203L422.8,62.762l8.607-3.163l43.341,149.79 L246.284,282.998z" />
+      <path d="M148.245,119.373h-33.5c-2.348,0-4.25,1.903-4.25,4.25c0,2.347,1.902,4.25,4.25,4.25h33.5c2.348,0,4.25-1.903,4.25-4.25 C152.495,121.276,150.593,119.373,148.245,119.373z" />
+    </g>
+  </svg>
+);
+</file>
+
+<file path="sanity.config.ts">
+'use client'
+
+/**
+ * This configuration is used to for the Sanity Studio that’s mounted on the `\app\studio\[[...tool]]\page.tsx` route
+ */
+
+import {visionTool} from '@sanity/vision'
+import {defineConfig} from 'sanity'
+import {structureTool} from 'sanity/structure'
+import { codeInput } from '@sanity/code-input';
+
+// Go to https://www.sanity.io/docs/api-versioning to learn how API versioning works
+import {apiVersion, dataset, projectId} from './sanity/env'
+import {schema} from './sanity/schemaTypes'
+import {structure} from './sanity/structure'
+
+export default defineConfig({
+  basePath: '/studio',
+  projectId,
+  dataset,
+  // Add and edit the content schema in the './sanity/schemaTypes' folder
+  schema,
+  plugins: [
+    structureTool({structure}),
+    // Vision is for querying with GROQ from inside the Studio
+    // https://www.sanity.io/docs/the-vision-plugin
+    visionTool({defaultApiVersion: apiVersion}),
+    codeInput()
+  ],
+})
+</file>
+
+<file path="sanity/lib/queries.tsx">
+import { defineQuery } from 'next-sanity'
+
+export const POSTS_QUERY =
+  defineQuery(`*[_type == "post" && defined(slug.current)]|order(publishedAt desc)[0...12]{
+  _id,
+  title,
+  slug,
+  body,
+  mainImage,
+  publishedAt,
+  "categories": coalesce(
+    categories[]->{
+      _id,
+      slug,
+      title
+    },
+    []
+  ),
+  author->{
+    name,
+    image
+  }
+}`)
+
+export const POSTS_SLUGS_QUERY =
+  defineQuery(`*[_type == "post" && defined(slug.current)]{ 
+  "slug": slug.current
+}`)
+
+export const POST_QUERY =
+  defineQuery(`*[_type == "post" && slug.current == $slug][0]{
+  _id,
+  title,
+  body,
+  mainImage,
+  publishedAt,
+  "categories": coalesce(
+    categories[]->{
+      _id,
+      slug,
+      title
+    },
+    []
+  ),
+  author->{
+    name,
+    image
+  }
+}`)
+
+
+
+
+export const AUDIOS_QUERY = defineQuery(`*[
+  _type == "audio"
+  && defined(slug.current)
+]{description,
+  _id,
+  'audio':audio.asset->url,
+  title,
+  slug,}`);
+</file>
+
+<file path="sanity/schemaTypes/index.ts">
+import { type SchemaTypeDefinition } from 'sanity'
+
+import {blockContentType} from './blockContentType'
+import {categoryType} from './categoryType'
+import {postType} from './postType'
+import {authorType} from './authorType'
+import { audioType } from './audioTypes'
+
+export const schema: { types: SchemaTypeDefinition[] } = {
+  types: [blockContentType, categoryType, postType, authorType, audioType],
+}
+</file>
+
+<file path="app/globals.css">
+@import "tailwindcss";
+@plugin "daisyui";
+
+
+/* @theme {
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+} */
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: Arial, Helvetica, sans-serif;
+}
+</file>
+
+<file path="next.config.ts">
+import type { NextConfig } from "next";
+
+const nextConfig: NextConfig = {
+  /* config options here */
+  images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "cdn.sanity.io",
+      },
+    ],
+  },
+};
+
+export default nextConfig;
+</file>
+
+<file path="PortableTextComponent.tsx">
+import Image from "next/image";
+import { PortableTextComponents } from "next-sanity";
+import { urlFor } from "@/sanity/lib/image";
+
+export const components: PortableTextComponents = {
+  block: {
+    normal: ({ children }) => <p className="mb-2 text-base leading-relaxed">{children}</p>, // Add margin-bottom
+    h1: ({ children }) => <h1 className="text-3xl font-bold mb-4">{children}</h1>,
+    h2: ({ children }) => <h2 className="text-2xl font-semibold mb-1 mt-4">{children}</h2>,
+    h3: ({ children }) => <h3 className="text-xl font-medium mb-2">{children}</h3>,
+    blockquote: ({ children }) => (
+      <blockquote className="border-l-4 border-gray-500 pl-4 italic ">{children}</blockquote>
+    ),
+  },
+  list: {
+    bullet: ({ children }) => <ul className="list-disc list-inside mb-4">{children}</ul>,
+    number: ({ children }) => <ol className="list-decimal list-inside mb-4">{children}</ol>,
+  },
+  types: {
+    image: ({ value }) =>
+      value ? (
+        <div className="rounded-lg not-prose w-full h-auto my-6">
+          <Image
+            src={urlFor(value).width(600).height(400).quality(80).auto("format").url()}
+            alt={value?.alt || "Image"}
+            width={600}
+            height={400}
+            layout="responsive"
+          />
+        </div>
+      ) : null,
+  },
+};
+</file>
+
+<file path="sanity/extract.json">
+[
+  {
+    "name": "sanity.imagePaletteSwatch",
+    "type": "type",
+    "value": {
+      "type": "object",
+      "attributes": {
+        "_type": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "string",
+            "value": "sanity.imagePaletteSwatch"
+          }
+        },
+        "background": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "string"
+          },
+          "optional": true
+        },
+        "foreground": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "string"
+          },
+          "optional": true
+        },
+        "population": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "number"
+          },
+          "optional": true
+        },
+        "title": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "string"
+          },
+          "optional": true
+        }
+      }
+    }
+  },
+  {
+    "name": "sanity.imagePalette",
+    "type": "type",
+    "value": {
+      "type": "object",
+      "attributes": {
+        "_type": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "string",
+            "value": "sanity.imagePalette"
+          }
+        },
+        "darkMuted": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "inline",
+            "name": "sanity.imagePaletteSwatch"
+          },
+          "optional": true
+        },
+        "lightVibrant": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "inline",
+            "name": "sanity.imagePaletteSwatch"
+          },
+          "optional": true
+        },
+        "darkVibrant": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "inline",
+            "name": "sanity.imagePaletteSwatch"
+          },
+          "optional": true
+        },
+        "vibrant": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "inline",
+            "name": "sanity.imagePaletteSwatch"
+          },
+          "optional": true
+        },
+        "dominant": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "inline",
+            "name": "sanity.imagePaletteSwatch"
+          },
+          "optional": true
+        },
+        "lightMuted": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "inline",
+            "name": "sanity.imagePaletteSwatch"
+          },
+          "optional": true
+        },
+        "muted": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "inline",
+            "name": "sanity.imagePaletteSwatch"
+          },
+          "optional": true
+        }
+      }
+    }
+  },
+  {
+    "name": "sanity.imageDimensions",
+    "type": "type",
+    "value": {
+      "type": "object",
+      "attributes": {
+        "_type": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "string",
+            "value": "sanity.imageDimensions"
+          }
+        },
+        "height": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "number"
+          },
+          "optional": true
+        },
+        "width": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "number"
+          },
+          "optional": true
+        },
+        "aspectRatio": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "number"
+          },
+          "optional": true
+        }
+      }
+    }
+  },
+  {
+    "name": "geopoint",
+    "type": "type",
+    "value": {
+      "type": "object",
+      "attributes": {
+        "_type": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "string",
+            "value": "geopoint"
+          }
+        },
+        "lat": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "number"
+          },
+          "optional": true
+        },
+        "lng": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "number"
+          },
+          "optional": true
+        },
+        "alt": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "number"
+          },
+          "optional": true
+        }
+      }
+    }
+  },
+  {
+    "name": "audio",
+    "type": "document",
+    "attributes": {
+      "_id": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "string"
+        }
+      },
+      "_type": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "string",
+          "value": "audio"
+        }
+      },
+      "_createdAt": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "string"
+        }
+      },
+      "_updatedAt": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "string"
+        }
+      },
+      "_rev": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "string"
+        }
+      },
+      "title": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "string"
+        },
+        "optional": true
+      },
+      "description": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "string"
+        },
+        "optional": true
+      },
+      "slug": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "inline",
+          "name": "slug"
+        },
+        "optional": true
+      },
+      "date": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "string"
+        },
+        "optional": true
+      },
+      "download": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "string"
+        },
+        "optional": true
+      },
+      "reciters": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "array",
+          "of": {
+            "type": "object",
+            "attributes": {
+              "children": {
+                "type": "objectAttribute",
+                "value": {
+                  "type": "array",
+                  "of": {
+                    "type": "object",
+                    "attributes": {
+                      "marks": {
+                        "type": "objectAttribute",
+                        "value": {
+                          "type": "array",
+                          "of": {
+                            "type": "string"
+                          }
+                        },
+                        "optional": true
+                      },
+                      "text": {
+                        "type": "objectAttribute",
+                        "value": {
+                          "type": "string"
+                        },
+                        "optional": true
+                      },
+                      "_type": {
+                        "type": "objectAttribute",
+                        "value": {
+                          "type": "string",
+                          "value": "span"
+                        }
+                      }
+                    },
+                    "rest": {
+                      "type": "object",
+                      "attributes": {
+                        "_key": {
+                          "type": "objectAttribute",
+                          "value": {
+                            "type": "string"
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "optional": true
+              },
+              "style": {
+                "type": "objectAttribute",
+                "value": {
+                  "type": "union",
+                  "of": [
+                    {
+                      "type": "string",
+                      "value": "normal"
+                    },
+                    {
+                      "type": "string",
+                      "value": "h1"
+                    },
+                    {
+                      "type": "string",
+                      "value": "h2"
+                    },
+                    {
+                      "type": "string",
+                      "value": "h3"
+                    },
+                    {
+                      "type": "string",
+                      "value": "h4"
+                    },
+                    {
+                      "type": "string",
+                      "value": "h5"
+                    },
+                    {
+                      "type": "string",
+                      "value": "h6"
+                    },
+                    {
+                      "type": "string",
+                      "value": "blockquote"
+                    }
+                  ]
+                },
+                "optional": true
+              },
+              "listItem": {
+                "type": "objectAttribute",
+                "value": {
+                  "type": "union",
+                  "of": [
+                    {
+                      "type": "string",
+                      "value": "bullet"
+                    },
+                    {
+                      "type": "string",
+                      "value": "number"
+                    }
+                  ]
+                },
+                "optional": true
+              },
+              "markDefs": {
+                "type": "objectAttribute",
+                "value": {
+                  "type": "array",
+                  "of": {
+                    "type": "object",
+                    "attributes": {
+                      "href": {
+                        "type": "objectAttribute",
+                        "value": {
+                          "type": "string"
+                        },
+                        "optional": true
+                      },
+                      "_type": {
+                        "type": "objectAttribute",
+                        "value": {
+                          "type": "string",
+                          "value": "link"
+                        }
+                      }
+                    },
+                    "rest": {
+                      "type": "object",
+                      "attributes": {
+                        "_key": {
+                          "type": "objectAttribute",
+                          "value": {
+                            "type": "string"
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "optional": true
+              },
+              "level": {
+                "type": "objectAttribute",
+                "value": {
+                  "type": "number"
+                },
+                "optional": true
+              },
+              "_type": {
+                "type": "objectAttribute",
+                "value": {
+                  "type": "string",
+                  "value": "block"
+                }
+              }
+            },
+            "rest": {
+              "type": "object",
+              "attributes": {
+                "_key": {
+                  "type": "objectAttribute",
+                  "value": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "optional": true
+      },
+      "audio_type": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "union",
+          "of": [
+            {
+              "type": "string",
+              "value": "Story of the Prophet Muhammed (PBUH)"
+            },
+            {
+              "type": "string",
+              "value": "Story of other Prophets"
+            }
+          ]
+        },
+        "optional": true
+      },
+      "audio": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "object",
+          "attributes": {
+            "asset": {
+              "type": "objectAttribute",
+              "value": {
+                "type": "object",
+                "attributes": {
+                  "_ref": {
+                    "type": "objectAttribute",
+                    "value": {
+                      "type": "string"
+                    }
+                  },
+                  "_type": {
+                    "type": "objectAttribute",
+                    "value": {
+                      "type": "string",
+                      "value": "reference"
+                    }
+                  },
+                  "_weak": {
+                    "type": "objectAttribute",
+                    "value": {
+                      "type": "boolean"
+                    },
+                    "optional": true
+                  }
+                },
+                "dereferencesTo": "sanity.fileAsset"
+              },
+              "optional": true
+            },
+            "_type": {
+              "type": "objectAttribute",
+              "value": {
+                "type": "string",
+                "value": "file"
+              }
+            }
+          }
+        },
+        "optional": true
+      }
+    }
+  },
+  {
+    "name": "sanity.fileAsset",
+    "type": "document",
+    "attributes": {
+      "_id": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "string"
+        }
+      },
+      "_type": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "string",
+          "value": "sanity.fileAsset"
+        }
+      },
+      "_createdAt": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "string"
+        }
+      },
+      "_updatedAt": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "string"
+        }
+      },
+      "_rev": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "string"
+        }
+      },
+      "originalFilename": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "string"
+        },
+        "optional": true
+      },
+      "label": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "string"
+        },
+        "optional": true
+      },
+      "title": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "string"
+        },
+        "optional": true
+      },
+      "description": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "string"
+        },
+        "optional": true
+      },
+      "altText": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "string"
+        },
+        "optional": true
+      },
+      "sha1hash": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "string"
+        },
+        "optional": true
+      },
+      "extension": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "string"
+        },
+        "optional": true
+      },
+      "mimeType": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "string"
+        },
+        "optional": true
+      },
+      "size": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "number"
+        },
+        "optional": true
+      },
+      "assetId": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "string"
+        },
+        "optional": true
+      },
+      "uploadId": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "string"
+        },
+        "optional": true
+      },
+      "path": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "string"
+        },
+        "optional": true
+      },
+      "url": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "string"
+        },
+        "optional": true
+      },
+      "source": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "inline",
+          "name": "sanity.assetSourceData"
+        },
+        "optional": true
+      }
+    }
+  },
+  {
+    "name": "post",
+    "type": "document",
+    "attributes": {
+      "_id": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "string"
+        }
+      },
+      "_type": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "string",
+          "value": "post"
+        }
+      },
+      "_createdAt": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "string"
+        }
+      },
+      "_updatedAt": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "string"
+        }
+      },
+      "_rev": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "string"
+        }
+      },
+      "title": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "string"
+        },
+        "optional": true
+      },
+      "slug": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "inline",
+          "name": "slug"
+        },
+        "optional": true
+      },
+      "author": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "object",
+          "attributes": {
+            "_ref": {
+              "type": "objectAttribute",
+              "value": {
+                "type": "string"
+              }
+            },
+            "_type": {
+              "type": "objectAttribute",
+              "value": {
+                "type": "string",
+                "value": "reference"
+              }
+            },
+            "_weak": {
+              "type": "objectAttribute",
+              "value": {
+                "type": "boolean"
+              },
+              "optional": true
+            }
+          },
+          "dereferencesTo": "author"
+        },
+        "optional": true
+      },
+      "mainImage": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "object",
+          "attributes": {
+            "asset": {
+              "type": "objectAttribute",
+              "value": {
+                "type": "object",
+                "attributes": {
+                  "_ref": {
+                    "type": "objectAttribute",
+                    "value": {
+                      "type": "string"
+                    }
+                  },
+                  "_type": {
+                    "type": "objectAttribute",
+                    "value": {
+                      "type": "string",
+                      "value": "reference"
+                    }
+                  },
+                  "_weak": {
+                    "type": "objectAttribute",
+                    "value": {
+                      "type": "boolean"
+                    },
+                    "optional": true
+                  }
+                },
+                "dereferencesTo": "sanity.imageAsset"
+              },
+              "optional": true
+            },
+            "hotspot": {
+              "type": "objectAttribute",
+              "value": {
+                "type": "inline",
+                "name": "sanity.imageHotspot"
+              },
+              "optional": true
+            },
+            "crop": {
+              "type": "objectAttribute",
+              "value": {
+                "type": "inline",
+                "name": "sanity.imageCrop"
+              },
+              "optional": true
+            },
+            "alt": {
+              "type": "objectAttribute",
+              "value": {
+                "type": "string"
+              },
+              "optional": true
+            },
+            "_type": {
+              "type": "objectAttribute",
+              "value": {
+                "type": "string",
+                "value": "image"
+              }
+            }
+          }
+        },
+        "optional": true
+      },
+      "categories": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "array",
+          "of": {
+            "type": "object",
+            "attributes": {
+              "_ref": {
+                "type": "objectAttribute",
+                "value": {
+                  "type": "string"
+                }
+              },
+              "_type": {
+                "type": "objectAttribute",
+                "value": {
+                  "type": "string",
+                  "value": "reference"
+                }
+              },
+              "_weak": {
+                "type": "objectAttribute",
+                "value": {
+                  "type": "boolean"
+                },
+                "optional": true
+              }
+            },
+            "dereferencesTo": "category",
+            "rest": {
+              "type": "object",
+              "attributes": {
+                "_key": {
+                  "type": "objectAttribute",
+                  "value": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "optional": true
+      },
+      "publishedAt": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "string"
+        },
+        "optional": true
+      },
+      "body": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "array",
+          "of": {
+            "type": "union",
+            "of": [
+              {
+                "type": "object",
+                "attributes": {
+                  "children": {
+                    "type": "objectAttribute",
+                    "value": {
+                      "type": "array",
+                      "of": {
+                        "type": "object",
+                        "attributes": {
+                          "marks": {
+                            "type": "objectAttribute",
+                            "value": {
+                              "type": "array",
+                              "of": {
+                                "type": "string"
+                              }
+                            },
+                            "optional": true
+                          },
+                          "text": {
+                            "type": "objectAttribute",
+                            "value": {
+                              "type": "string"
+                            },
+                            "optional": true
+                          },
+                          "_type": {
+                            "type": "objectAttribute",
+                            "value": {
+                              "type": "string",
+                              "value": "span"
+                            }
+                          }
+                        },
+                        "rest": {
+                          "type": "object",
+                          "attributes": {
+                            "_key": {
+                              "type": "objectAttribute",
+                              "value": {
+                                "type": "string"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "optional": true
+                  },
+                  "style": {
+                    "type": "objectAttribute",
+                    "value": {
+                      "type": "union",
+                      "of": [
+                        {
+                          "type": "string",
+                          "value": "normal"
+                        },
+                        {
+                          "type": "string",
+                          "value": "h1"
+                        },
+                        {
+                          "type": "string",
+                          "value": "h2"
+                        },
+                        {
+                          "type": "string",
+                          "value": "h3"
+                        },
+                        {
+                          "type": "string",
+                          "value": "h4"
+                        },
+                        {
+                          "type": "string",
+                          "value": "blockquote"
+                        }
+                      ]
+                    },
+                    "optional": true
+                  },
+                  "listItem": {
+                    "type": "objectAttribute",
+                    "value": {
+                      "type": "union",
+                      "of": [
+                        {
+                          "type": "string",
+                          "value": "bullet"
+                        }
+                      ]
+                    },
+                    "optional": true
+                  },
+                  "markDefs": {
+                    "type": "objectAttribute",
+                    "value": {
+                      "type": "array",
+                      "of": {
+                        "type": "object",
+                        "attributes": {
+                          "href": {
+                            "type": "objectAttribute",
+                            "value": {
+                              "type": "string"
+                            },
+                            "optional": true
+                          },
+                          "_type": {
+                            "type": "objectAttribute",
+                            "value": {
+                              "type": "string",
+                              "value": "link"
+                            }
+                          }
+                        },
+                        "rest": {
+                          "type": "object",
+                          "attributes": {
+                            "_key": {
+                              "type": "objectAttribute",
+                              "value": {
+                                "type": "string"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "optional": true
+                  },
+                  "level": {
+                    "type": "objectAttribute",
+                    "value": {
+                      "type": "number"
+                    },
+                    "optional": true
+                  },
+                  "_type": {
+                    "type": "objectAttribute",
+                    "value": {
+                      "type": "string",
+                      "value": "block"
+                    }
+                  }
+                },
+                "rest": {
+                  "type": "object",
+                  "attributes": {
+                    "_key": {
+                      "type": "objectAttribute",
+                      "value": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                }
+              },
+              {
+                "type": "object",
+                "attributes": {
+                  "asset": {
+                    "type": "objectAttribute",
+                    "value": {
+                      "type": "object",
+                      "attributes": {
+                        "_ref": {
+                          "type": "objectAttribute",
+                          "value": {
+                            "type": "string"
+                          }
+                        },
+                        "_type": {
+                          "type": "objectAttribute",
+                          "value": {
+                            "type": "string",
+                            "value": "reference"
+                          }
+                        },
+                        "_weak": {
+                          "type": "objectAttribute",
+                          "value": {
+                            "type": "boolean"
+                          },
+                          "optional": true
+                        }
+                      },
+                      "dereferencesTo": "sanity.imageAsset"
+                    },
+                    "optional": true
+                  },
+                  "hotspot": {
+                    "type": "objectAttribute",
+                    "value": {
+                      "type": "inline",
+                      "name": "sanity.imageHotspot"
+                    },
+                    "optional": true
+                  },
+                  "crop": {
+                    "type": "objectAttribute",
+                    "value": {
+                      "type": "inline",
+                      "name": "sanity.imageCrop"
+                    },
+                    "optional": true
+                  },
+                  "alt": {
+                    "type": "objectAttribute",
+                    "value": {
+                      "type": "string"
+                    },
+                    "optional": true
+                  },
+                  "_type": {
+                    "type": "objectAttribute",
+                    "value": {
+                      "type": "string",
+                      "value": "image"
+                    }
+                  }
+                },
+                "rest": {
+                  "type": "object",
+                  "attributes": {
+                    "_key": {
+                      "type": "objectAttribute",
+                      "value": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        "optional": true
+      }
+    }
+  },
+  {
+    "name": "author",
+    "type": "document",
+    "attributes": {
+      "_id": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "string"
+        }
+      },
+      "_type": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "string",
+          "value": "author"
+        }
+      },
+      "_createdAt": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "string"
+        }
+      },
+      "_updatedAt": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "string"
+        }
+      },
+      "_rev": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "string"
+        }
+      },
+      "name": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "string"
+        },
+        "optional": true
+      },
+      "slug": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "inline",
+          "name": "slug"
+        },
+        "optional": true
+      },
+      "image": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "object",
+          "attributes": {
+            "asset": {
+              "type": "objectAttribute",
+              "value": {
+                "type": "object",
+                "attributes": {
+                  "_ref": {
+                    "type": "objectAttribute",
+                    "value": {
+                      "type": "string"
+                    }
+                  },
+                  "_type": {
+                    "type": "objectAttribute",
+                    "value": {
+                      "type": "string",
+                      "value": "reference"
+                    }
+                  },
+                  "_weak": {
+                    "type": "objectAttribute",
+                    "value": {
+                      "type": "boolean"
+                    },
+                    "optional": true
+                  }
+                },
+                "dereferencesTo": "sanity.imageAsset"
+              },
+              "optional": true
+            },
+            "hotspot": {
+              "type": "objectAttribute",
+              "value": {
+                "type": "inline",
+                "name": "sanity.imageHotspot"
+              },
+              "optional": true
+            },
+            "crop": {
+              "type": "objectAttribute",
+              "value": {
+                "type": "inline",
+                "name": "sanity.imageCrop"
+              },
+              "optional": true
+            },
+            "_type": {
+              "type": "objectAttribute",
+              "value": {
+                "type": "string",
+                "value": "image"
+              }
+            }
+          }
+        },
+        "optional": true
+      },
+      "bio": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "array",
+          "of": {
+            "type": "object",
+            "attributes": {
+              "children": {
+                "type": "objectAttribute",
+                "value": {
+                  "type": "array",
+                  "of": {
+                    "type": "object",
+                    "attributes": {
+                      "marks": {
+                        "type": "objectAttribute",
+                        "value": {
+                          "type": "array",
+                          "of": {
+                            "type": "string"
+                          }
+                        },
+                        "optional": true
+                      },
+                      "text": {
+                        "type": "objectAttribute",
+                        "value": {
+                          "type": "string"
+                        },
+                        "optional": true
+                      },
+                      "_type": {
+                        "type": "objectAttribute",
+                        "value": {
+                          "type": "string",
+                          "value": "span"
+                        }
+                      }
+                    },
+                    "rest": {
+                      "type": "object",
+                      "attributes": {
+                        "_key": {
+                          "type": "objectAttribute",
+                          "value": {
+                            "type": "string"
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "optional": true
+              },
+              "style": {
+                "type": "objectAttribute",
+                "value": {
+                  "type": "union",
+                  "of": [
+                    {
+                      "type": "string",
+                      "value": "normal"
+                    }
+                  ]
+                },
+                "optional": true
+              },
+              "listItem": {
+                "type": "objectAttribute",
+                "value": {
+                  "type": "union",
+                  "of": []
+                },
+                "optional": true
+              },
+              "markDefs": {
+                "type": "objectAttribute",
+                "value": {
+                  "type": "array",
+                  "of": {
+                    "type": "object",
+                    "attributes": {
+                      "href": {
+                        "type": "objectAttribute",
+                        "value": {
+                          "type": "string"
+                        },
+                        "optional": true
+                      },
+                      "_type": {
+                        "type": "objectAttribute",
+                        "value": {
+                          "type": "string",
+                          "value": "link"
+                        }
+                      }
+                    },
+                    "rest": {
+                      "type": "object",
+                      "attributes": {
+                        "_key": {
+                          "type": "objectAttribute",
+                          "value": {
+                            "type": "string"
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "optional": true
+              },
+              "level": {
+                "type": "objectAttribute",
+                "value": {
+                  "type": "number"
+                },
+                "optional": true
+              },
+              "_type": {
+                "type": "objectAttribute",
+                "value": {
+                  "type": "string",
+                  "value": "block"
+                }
+              }
+            },
+            "rest": {
+              "type": "object",
+              "attributes": {
+                "_key": {
+                  "type": "objectAttribute",
+                  "value": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "optional": true
+      }
+    }
+  },
+  {
+    "name": "category",
+    "type": "document",
+    "attributes": {
+      "_id": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "string"
+        }
+      },
+      "_type": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "string",
+          "value": "category"
+        }
+      },
+      "_createdAt": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "string"
+        }
+      },
+      "_updatedAt": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "string"
+        }
+      },
+      "_rev": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "string"
+        }
+      },
+      "title": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "string"
+        },
+        "optional": true
+      },
+      "slug": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "inline",
+          "name": "slug"
+        },
+        "optional": true
+      },
+      "description": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "string"
+        },
+        "optional": true
+      }
+    }
+  },
+  {
+    "name": "slug",
+    "type": "type",
+    "value": {
+      "type": "object",
+      "attributes": {
+        "_type": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "string",
+            "value": "slug"
+          }
+        },
+        "current": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "string"
+          },
+          "optional": true
+        },
+        "source": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "string"
+          },
+          "optional": true
+        }
+      }
+    }
+  },
+  {
+    "name": "blockContent",
+    "type": "type",
+    "value": {
+      "type": "array",
+      "of": {
+        "type": "union",
+        "of": [
+          {
+            "type": "object",
+            "attributes": {
+              "children": {
+                "type": "objectAttribute",
+                "value": {
+                  "type": "array",
+                  "of": {
+                    "type": "object",
+                    "attributes": {
+                      "marks": {
+                        "type": "objectAttribute",
+                        "value": {
+                          "type": "array",
+                          "of": {
+                            "type": "string"
+                          }
+                        },
+                        "optional": true
+                      },
+                      "text": {
+                        "type": "objectAttribute",
+                        "value": {
+                          "type": "string"
+                        },
+                        "optional": true
+                      },
+                      "_type": {
+                        "type": "objectAttribute",
+                        "value": {
+                          "type": "string",
+                          "value": "span"
+                        }
+                      }
+                    },
+                    "rest": {
+                      "type": "object",
+                      "attributes": {
+                        "_key": {
+                          "type": "objectAttribute",
+                          "value": {
+                            "type": "string"
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "optional": true
+              },
+              "style": {
+                "type": "objectAttribute",
+                "value": {
+                  "type": "union",
+                  "of": [
+                    {
+                      "type": "string",
+                      "value": "normal"
+                    },
+                    {
+                      "type": "string",
+                      "value": "h1"
+                    },
+                    {
+                      "type": "string",
+                      "value": "h2"
+                    },
+                    {
+                      "type": "string",
+                      "value": "h3"
+                    },
+                    {
+                      "type": "string",
+                      "value": "h4"
+                    },
+                    {
+                      "type": "string",
+                      "value": "blockquote"
+                    }
+                  ]
+                },
+                "optional": true
+              },
+              "listItem": {
+                "type": "objectAttribute",
+                "value": {
+                  "type": "union",
+                  "of": [
+                    {
+                      "type": "string",
+                      "value": "bullet"
+                    }
+                  ]
+                },
+                "optional": true
+              },
+              "markDefs": {
+                "type": "objectAttribute",
+                "value": {
+                  "type": "array",
+                  "of": {
+                    "type": "object",
+                    "attributes": {
+                      "href": {
+                        "type": "objectAttribute",
+                        "value": {
+                          "type": "string"
+                        },
+                        "optional": true
+                      },
+                      "_type": {
+                        "type": "objectAttribute",
+                        "value": {
+                          "type": "string",
+                          "value": "link"
+                        }
+                      }
+                    },
+                    "rest": {
+                      "type": "object",
+                      "attributes": {
+                        "_key": {
+                          "type": "objectAttribute",
+                          "value": {
+                            "type": "string"
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "optional": true
+              },
+              "level": {
+                "type": "objectAttribute",
+                "value": {
+                  "type": "number"
+                },
+                "optional": true
+              },
+              "_type": {
+                "type": "objectAttribute",
+                "value": {
+                  "type": "string",
+                  "value": "block"
+                }
+              }
+            },
+            "rest": {
+              "type": "object",
+              "attributes": {
+                "_key": {
+                  "type": "objectAttribute",
+                  "value": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          },
+          {
+            "type": "object",
+            "attributes": {
+              "asset": {
+                "type": "objectAttribute",
+                "value": {
+                  "type": "object",
+                  "attributes": {
+                    "_ref": {
+                      "type": "objectAttribute",
+                      "value": {
+                        "type": "string"
+                      }
+                    },
+                    "_type": {
+                      "type": "objectAttribute",
+                      "value": {
+                        "type": "string",
+                        "value": "reference"
+                      }
+                    },
+                    "_weak": {
+                      "type": "objectAttribute",
+                      "value": {
+                        "type": "boolean"
+                      },
+                      "optional": true
+                    }
+                  },
+                  "dereferencesTo": "sanity.imageAsset"
+                },
+                "optional": true
+              },
+              "hotspot": {
+                "type": "objectAttribute",
+                "value": {
+                  "type": "inline",
+                  "name": "sanity.imageHotspot"
+                },
+                "optional": true
+              },
+              "crop": {
+                "type": "objectAttribute",
+                "value": {
+                  "type": "inline",
+                  "name": "sanity.imageCrop"
+                },
+                "optional": true
+              },
+              "alt": {
+                "type": "objectAttribute",
+                "value": {
+                  "type": "string"
+                },
+                "optional": true
+              },
+              "_type": {
+                "type": "objectAttribute",
+                "value": {
+                  "type": "string",
+                  "value": "image"
+                }
+              }
+            },
+            "rest": {
+              "type": "object",
+              "attributes": {
+                "_key": {
+                  "type": "objectAttribute",
+                  "value": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        ]
+      }
+    }
+  },
+  {
+    "name": "sanity.imageCrop",
+    "type": "type",
+    "value": {
+      "type": "object",
+      "attributes": {
+        "_type": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "string",
+            "value": "sanity.imageCrop"
+          }
+        },
+        "top": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "number"
+          },
+          "optional": true
+        },
+        "bottom": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "number"
+          },
+          "optional": true
+        },
+        "left": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "number"
+          },
+          "optional": true
+        },
+        "right": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "number"
+          },
+          "optional": true
+        }
+      }
+    }
+  },
+  {
+    "name": "sanity.imageHotspot",
+    "type": "type",
+    "value": {
+      "type": "object",
+      "attributes": {
+        "_type": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "string",
+            "value": "sanity.imageHotspot"
+          }
+        },
+        "x": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "number"
+          },
+          "optional": true
+        },
+        "y": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "number"
+          },
+          "optional": true
+        },
+        "height": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "number"
+          },
+          "optional": true
+        },
+        "width": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "number"
+          },
+          "optional": true
+        }
+      }
+    }
+  },
+  {
+    "name": "sanity.imageAsset",
+    "type": "document",
+    "attributes": {
+      "_id": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "string"
+        }
+      },
+      "_type": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "string",
+          "value": "sanity.imageAsset"
+        }
+      },
+      "_createdAt": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "string"
+        }
+      },
+      "_updatedAt": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "string"
+        }
+      },
+      "_rev": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "string"
+        }
+      },
+      "originalFilename": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "string"
+        },
+        "optional": true
+      },
+      "label": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "string"
+        },
+        "optional": true
+      },
+      "title": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "string"
+        },
+        "optional": true
+      },
+      "description": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "string"
+        },
+        "optional": true
+      },
+      "altText": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "string"
+        },
+        "optional": true
+      },
+      "sha1hash": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "string"
+        },
+        "optional": true
+      },
+      "extension": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "string"
+        },
+        "optional": true
+      },
+      "mimeType": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "string"
+        },
+        "optional": true
+      },
+      "size": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "number"
+        },
+        "optional": true
+      },
+      "assetId": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "string"
+        },
+        "optional": true
+      },
+      "uploadId": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "string"
+        },
+        "optional": true
+      },
+      "path": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "string"
+        },
+        "optional": true
+      },
+      "url": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "string"
+        },
+        "optional": true
+      },
+      "metadata": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "inline",
+          "name": "sanity.imageMetadata"
+        },
+        "optional": true
+      },
+      "source": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "inline",
+          "name": "sanity.assetSourceData"
+        },
+        "optional": true
+      }
+    }
+  },
+  {
+    "name": "sanity.assetSourceData",
+    "type": "type",
+    "value": {
+      "type": "object",
+      "attributes": {
+        "_type": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "string",
+            "value": "sanity.assetSourceData"
+          }
+        },
+        "name": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "string"
+          },
+          "optional": true
+        },
+        "id": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "string"
+          },
+          "optional": true
+        },
+        "url": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "string"
+          },
+          "optional": true
+        }
+      }
+    }
+  },
+  {
+    "name": "sanity.imageMetadata",
+    "type": "type",
+    "value": {
+      "type": "object",
+      "attributes": {
+        "_type": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "string",
+            "value": "sanity.imageMetadata"
+          }
+        },
+        "location": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "inline",
+            "name": "geopoint"
+          },
+          "optional": true
+        },
+        "dimensions": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "inline",
+            "name": "sanity.imageDimensions"
+          },
+          "optional": true
+        },
+        "palette": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "inline",
+            "name": "sanity.imagePalette"
+          },
+          "optional": true
+        },
+        "lqip": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "string"
+          },
+          "optional": true
+        },
+        "blurHash": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "string"
+          },
+          "optional": true
+        },
+        "hasAlpha": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "boolean"
+          },
+          "optional": true
+        },
+        "isOpaque": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "boolean"
+          },
+          "optional": true
+        }
+      }
+    }
+  },
+  {
+    "name": "code",
+    "type": "type",
+    "value": {
+      "type": "object",
+      "attributes": {
+        "_type": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "string",
+            "value": "code"
+          }
+        },
+        "language": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "string"
+          },
+          "optional": true
+        },
+        "filename": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "string"
+          },
+          "optional": true
+        },
+        "code": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "string"
+          },
+          "optional": true
+        },
+        "highlightedLines": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "array",
+            "of": {
+              "type": "number"
+            }
+          },
+          "optional": true
+        }
+      }
+    }
+  }
+]
+</file>
+
+<file path="sanity/lib/client.ts">
+import { createClient } from 'next-sanity'
+
+import { apiVersion, dataset, projectId } from '../env'
+
+export const client = createClient({
+  projectId,
+  dataset,
+  apiVersion,
+  useCdn: true, // Set to false if statically generating pages, using ISR or tag-based revalidation
+  stega: { studioUrl: '/studio' },
+})
+
+// export const client = createClient({
+//   projectId:'2765byju',
+//   dataset:'production',
+//   apiVersion:'v2025-03-09',
+//   useCdn: true, // Set to false if statically generating pages, using ISR or tag-based revalidation
+// })
+</file>
+
+<file path="sanity/lib/live.ts">
+// Querying with "sanityFetch" will keep content automatically updated
+// Before using it, import and render "<SanityLive />" in your layout, see
+// https://github.com/sanity-io/next-sanity#live-content-api for more information.
+import { defineLive } from "next-sanity";
+import { client } from './client'
+
+
+export const { sanityFetch, SanityLive } = defineLive({ 
+  client: client.withConfig({ 
+    // Live content is currently only available on the experimental API
+    // https://www.sanity.io/docs/api-versioning
+    apiVersion: 'vX' 
+  }), 
+
+});
+</file>
+
+<file path="sanity/schemaTypes/blockContentType.ts">
+import {defineType, defineArrayMember} from 'sanity'
+import {ImageIcon} from '@sanity/icons'
+
+/**
+ * This is the schema type for block content used in the post document type
+ * Importing this type into the studio configuration's `schema` property
+ * lets you reuse it in other document types with:
+ *  {
+ *    name: 'someName',
+ *    title: 'Some title',
+ *    type: 'blockContent'
+ *  }
+ */
+
+export const blockContentType = defineType({
+  title: 'Block Content',
+  name: 'blockContent',
+  type: 'array',
+  of: [
+    defineArrayMember({
+      type: 'block',
+      // Styles let you define what blocks can be marked up as. The default
+      // set corresponds with HTML tags, but you can set any title or value
+      // you want, and decide how you want to deal with it where you want to
+      // use your content.
+      styles: [
+        {title: 'Normal', value: 'normal'},
+        {title: 'H1', value: 'h1'},
+        {title: 'H2', value: 'h2'},
+        {title: 'H3', value: 'h3'},
+        {title: 'H4', value: 'h4'},
+        {title: 'Quote', value: 'blockquote'},
+      ],
+      lists: [{title: 'Bullet', value: 'bullet'}],
+      // Marks let you mark up inline text in the Portable Text Editor
+      marks: {
+        // Decorators usually describe a single property – e.g. a typographic
+        // preference or highlighting
+        decorators: [
+          {title: 'Strong', value: 'strong'},
+          {title: 'Emphasis', value: 'em'},
+        ],
+        // Annotations can be any object structure – e.g. a link or a footnote.
+        annotations: [
+          {
+            title: 'URL',
+            name: 'link',
+            type: 'object',
+            fields: [
+              {
+                title: 'URL',
+                name: 'href',
+                type: 'url',
+              },
+            ],
+          },
+        ],
+      },
+    }),
+    // You can add additional types here. Note that you can't use
+    // primitive types such as 'string' and 'number' in the same array
+    // as a block type.
+    defineArrayMember({
+      type: 'image',
+      icon: ImageIcon,
+      options: {hotspot: true},
+      fields: [
+        {
+          name: 'alt',
+          type: 'string',
+          title: 'Alternative Text',
+        }
+      ]
+    }),
+
+    // video
+    // defineArrayMember({
+    //   type: 'object',
+    //   name: 'videoEmbed',
+    //   title: 'Video Embed',
+    //   fields: [
+    //     {
+    //       name: 'url',
+    //       type: 'url',
+    //       title: 'Video URL',
+    //       description: 'Supports YouTube, Vimeo, etc.',
+    //       validation: (Rule) =>
+    //         Rule.uri({
+    //           scheme: ['http', 'https'],
+    //         }),
+    //     },
+    //   ],
+    // }),
+    
+
+    // code
+    // defineArrayMember({
+    //   type: 'object',
+    //   name: 'codeBlock',
+    //   title: 'Code Block',
+    //   fields: [
+    //     {
+    //       name: 'code',
+    //       type: 'text',
+    //       title: 'Code',
+    //       options: {
+    //         language: 'javascript',
+    //         languages: ['javascript', 'python', 'html', 'css', 'typescript'],
+    //       },
+    //     },
+    //   ],
+    // }),
+    
+
+    // callout block-custom alert
+
+    // defineArrayMember({
+    //   type: 'object',
+    //   name: 'callout',
+    //   title: 'Callout',
+    //   fields: [
+    //     {
+    //       name: 'type',
+    //       type: 'string',
+    //       title: 'Type',
+    //       options: {
+    //         list: [
+    //           { title: 'Info', value: 'info' },
+    //           { title: 'Warning', value: 'warning' },
+    //           { title: 'Success', value: 'success' },
+    //         ],
+    //       },
+    //     },
+    //     {
+    //       name: 'content',
+    //       type: 'text',
+    //       title: 'Content',
+    //     },
+    //   ],
+    // }),
+    
+    
+
+  ],
+})
+</file>
+
+<file path="sanity/schemaTypes/postType.ts">
+import {DocumentTextIcon} from '@sanity/icons'
+import {defineArrayMember, defineField, defineType} from 'sanity'
+
+export const postType = defineType({
+  name: 'post',
+  title: 'Post',
+  type: 'document',
+  icon: DocumentTextIcon,
+  fields: [
+    defineField({
+      name: 'title',
+      type: 'string',
+    }),
+    defineField({
+      name: 'slug',
+      type: 'slug',
+      options: {
+        source: 'title',
+      },
+    }),
+    defineField({
+      name: 'author',
+      type: 'reference',
+      to: {type: 'author'},
+    }),
+    defineField({
+      name: 'mainImage',
+      type: 'image',
+      options: {
+        hotspot: true,
+      },
+      fields: [
+        defineField({
+          name: 'alt',
+          type: 'string',
+          title: 'Alternative text',
+          validation: rule => rule.custom((value, context) => {
+            const parent = context?.parent as {asset?: {_ref?: string}}
+        
+            return !value && parent?.asset?._ref ? 'Alt text is required when an image is present' : true
+          }),
+        })
+      ]
+    }),
+    defineField({
+      name: 'categories',
+      type: 'array',
+      of: [defineArrayMember({type: 'reference', to: {type: 'category'}})],
+    }),
+    defineField({
+      name: 'publishedAt',
+      type: 'datetime',
+    }),
+    defineField({
+      name: 'body',
+      type: 'blockContent',
+    }),
+    // defineField({
+    //   name: 'body',
+    //   type: 'array',
+    //   of:[{type: 'block'}]
+    // }),
+  ],
+  preview: {
+    select: {
+      title: 'title',
+      author: 'author.name',
+      media: 'mainImage',
+    },
+    prepare(selection) {
+      const {author} = selection
+      return {...selection, subtitle: author && `by ${author}`}
+    },
+  },
+})
+</file>
+
+<file path="components/99names/99names.tsx">
+import axios from "axios";
+import { Title } from "../title/title";
+import { BeautifulNames } from "../card/beautiful-names";
+
+export type AllahName = {
+  number: number;
+  name: string;
+  transliteration: string;
+  en: { meaning: string };
+};
+
+export type ApiResponse = {
+  data: AllahName[];
+};
+
+
+
+
+export async function getNinetyNineNames(): Promise<AllahName[]> {
+  try {
+    const { data } = await axios.get<ApiResponse>("https://api.aladhan.com/v1/asmaAlHusna");
+    return data?.data || [];
+  } catch (error) {
+    console.error("Error fetching data:", error);
+    return []; 
+  }
+}
+
+
+export default async function NinetyNineNamesPage() {
+   
+    const names = await getNinetyNineNames();
+
+    // console.log("SANITY_API_READ_TOKEN:", process.env.SANITY_API_READ_TOKEN);
+
+  
+    return (
+      <main className=" mx-auto p-6">
+        <Title>Beautiful Names of Allah</Title>
+        {names.length === 0 ? (
+          <p className="text-red-500">Error fetching data or no names found.</p>
+        ) : (
+            <div dir="rtl" className="  grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+            {names.map((name) => (
+              <BeautifulNames  key={name.number} {...name}/>
+            ))}
+          </div>
+        )}
+      </main>
+    );
+  }
+</file>
+
+<file path="components/card/card2.tsx">
+import React, { ReactElement } from 'react'
+import Link from 'next/link'
+
+
+
+interface Cards  {
+    s_title : string,
+    b_title : string,
+    description?: string,
+    src?:string,
+    alt?:string,
+    id: number,
+    img: ReactElement,
+    bg: string,
+    url: string
+  }
+
+const MainCard:React.FC<Cards> = ({s_title, b_title, img, url, bg, id}) => {
+  return (
+    <div key={id}>
+        <Link href={url}>
+            <div className={`p-2 shadow-md rounded-lg flex justify-center items-center h-25 ${bg}`}>
+                <p >{s_title} <span className="text-xl sm:text-lg font-bold" >{b_title}</span></p>
+                {img}
+            </div>
+        </Link>
+    </div>
+  )
+}
+
+export default MainCard
+</file>
+
+<file path="sanity/types.ts">
+/**
+ * ---------------------------------------------------------------------------------
+ * This file has been generated by Sanity TypeGen.
+ * Command: `sanity typegen generate`
+ *
+ * Any modifications made directly to this file will be overwritten the next time
+ * the TypeScript definitions are generated. Please make changes to the Sanity
+ * schema definitions and/or GROQ queries if you need to update these types.
+ *
+ * For more information on how to use Sanity TypeGen, visit the official documentation:
+ * https://www.sanity.io/docs/sanity-typegen
+ * ---------------------------------------------------------------------------------
+ */
+
+// Source: schema.json
+export type SanityImagePaletteSwatch = {
+  _type: "sanity.imagePaletteSwatch";
+  background?: string;
+  foreground?: string;
+  population?: number;
+  title?: string;
+};
+
+export type SanityImagePalette = {
+  _type: "sanity.imagePalette";
+  darkMuted?: SanityImagePaletteSwatch;
+  lightVibrant?: SanityImagePaletteSwatch;
+  darkVibrant?: SanityImagePaletteSwatch;
+  vibrant?: SanityImagePaletteSwatch;
+  dominant?: SanityImagePaletteSwatch;
+  lightMuted?: SanityImagePaletteSwatch;
+  muted?: SanityImagePaletteSwatch;
+};
+
+export type SanityImageDimensions = {
+  _type: "sanity.imageDimensions";
+  height?: number;
+  width?: number;
+  aspectRatio?: number;
+};
+
+export type Geopoint = {
+  _type: "geopoint";
+  lat?: number;
+  lng?: number;
+  alt?: number;
+};
+
+export type Audio = {
+  _id: string;
+  _type: "audio";
+  _createdAt: string;
+  _updatedAt: string;
+  _rev: string;
+  title?: string;
+  description?: string;
+  slug?: Slug;
+  date?: string;
+  download?: string;
+  reciters?: Array<{
+    children?: Array<{
+      marks?: Array<string>;
+      text?: string;
+      _type: "span";
+      _key: string;
+    }>;
+    style?: "normal" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "blockquote";
+    listItem?: "bullet" | "number";
+    markDefs?: Array<{
+      href?: string;
+      _type: "link";
+      _key: string;
+    }>;
+    level?: number;
+    _type: "block";
+    _key: string;
+  }>;
+  audio_type?: "Story of the Prophet Muhammed (PBUH)" | "Story of other Prophets";
+  audio?: {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.fileAsset";
+    };
+    _type: "file";
+  };
+};
+
+export type SanityFileAsset = {
+  _id: string;
+  _type: "sanity.fileAsset";
+  _createdAt: string;
+  _updatedAt: string;
+  _rev: string;
+  originalFilename?: string;
+  label?: string;
+  title?: string;
+  description?: string;
+  altText?: string;
+  sha1hash?: string;
+  extension?: string;
+  mimeType?: string;
+  size?: number;
+  assetId?: string;
+  uploadId?: string;
+  path?: string;
+  url?: string;
+  source?: SanityAssetSourceData;
+};
+
+export type Post = {
+  _id: string;
+  _type: "post";
+  _createdAt: string;
+  _updatedAt: string;
+  _rev: string;
+  title?: string;
+  slug?: Slug;
+  author?: {
+    _ref: string;
+    _type: "reference";
+    _weak?: boolean;
+    [internalGroqTypeReferenceTo]?: "author";
+  };
+  mainImage?: {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    alt?: string;
+    _type: "image";
+  };
+  categories?: Array<{
+    _ref: string;
+    _type: "reference";
+    _weak?: boolean;
+    _key: string;
+    [internalGroqTypeReferenceTo]?: "category";
+  }>;
+  publishedAt?: string;
+  body?: Array<{
+    children?: Array<{
+      marks?: Array<string>;
+      text?: string;
+      _type: "span";
+      _key: string;
+    }>;
+    style?: "normal" | "h1" | "h2" | "h3" | "h4" | "blockquote";
+    listItem?: "bullet";
+    markDefs?: Array<{
+      href?: string;
+      _type: "link";
+      _key: string;
+    }>;
+    level?: number;
+    _type: "block";
+    _key: string;
+  } | {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    alt?: string;
+    _type: "image";
+    _key: string;
+  }>;
+};
+
+export type Author = {
+  _id: string;
+  _type: "author";
+  _createdAt: string;
+  _updatedAt: string;
+  _rev: string;
+  name?: string;
+  slug?: Slug;
+  image?: {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    _type: "image";
+  };
+  bio?: Array<{
+    children?: Array<{
+      marks?: Array<string>;
+      text?: string;
+      _type: "span";
+      _key: string;
+    }>;
+    style?: "normal";
+    listItem?: never;
+    markDefs?: Array<{
+      href?: string;
+      _type: "link";
+      _key: string;
+    }>;
+    level?: number;
+    _type: "block";
+    _key: string;
+  }>;
+};
+
+export type Category = {
+  _id: string;
+  _type: "category";
+  _createdAt: string;
+  _updatedAt: string;
+  _rev: string;
+  title?: string;
+  slug?: Slug;
+  description?: string;
+};
+
+export type Slug = {
+  _type: "slug";
+  current?: string;
+  source?: string;
+};
+
+export type BlockContent = Array<{
+  children?: Array<{
+    marks?: Array<string>;
+    text?: string;
+    _type: "span";
+    _key: string;
+  }>;
+  style?: "normal" | "h1" | "h2" | "h3" | "h4" | "blockquote";
+  listItem?: "bullet";
+  markDefs?: Array<{
+    href?: string;
+    _type: "link";
+    _key: string;
+  }>;
+  level?: number;
+  _type: "block";
+  _key: string;
+} | {
+  asset?: {
+    _ref: string;
+    _type: "reference";
+    _weak?: boolean;
+    [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+  };
+  hotspot?: SanityImageHotspot;
+  crop?: SanityImageCrop;
+  alt?: string;
+  _type: "image";
+  _key: string;
+}>;
+
+export type SanityImageCrop = {
+  _type: "sanity.imageCrop";
+  top?: number;
+  bottom?: number;
+  left?: number;
+  right?: number;
+};
+
+export type SanityImageHotspot = {
+  _type: "sanity.imageHotspot";
+  x?: number;
+  y?: number;
+  height?: number;
+  width?: number;
+};
+
+export type SanityImageAsset = {
+  _id: string;
+  _type: "sanity.imageAsset";
+  _createdAt: string;
+  _updatedAt: string;
+  _rev: string;
+  originalFilename?: string;
+  label?: string;
+  title?: string;
+  description?: string;
+  altText?: string;
+  sha1hash?: string;
+  extension?: string;
+  mimeType?: string;
+  size?: number;
+  assetId?: string;
+  uploadId?: string;
+  path?: string;
+  url?: string;
+  metadata?: SanityImageMetadata;
+  source?: SanityAssetSourceData;
+};
+
+export type SanityAssetSourceData = {
+  _type: "sanity.assetSourceData";
+  name?: string;
+  id?: string;
+  url?: string;
+};
+
+export type SanityImageMetadata = {
+  _type: "sanity.imageMetadata";
+  location?: Geopoint;
+  dimensions?: SanityImageDimensions;
+  palette?: SanityImagePalette;
+  lqip?: string;
+  blurHash?: string;
+  hasAlpha?: boolean;
+  isOpaque?: boolean;
+};
+
+export type Code = {
+  _type: "code";
+  language?: string;
+  filename?: string;
+  code?: string;
+  highlightedLines?: Array<number>;
+};
+
+export type AllSanitySchemaTypes = SanityImagePaletteSwatch | SanityImagePalette | SanityImageDimensions | Geopoint | Audio | SanityFileAsset | Post | Author | Category | Slug | BlockContent | SanityImageCrop | SanityImageHotspot | SanityImageAsset | SanityAssetSourceData | SanityImageMetadata | Code;
+export declare const internalGroqTypeReferenceTo: unique symbol;
+// Source: sanity/lib/queries.tsx
+// Variable: POSTS_QUERY
+// Query: *[_type == "post" && defined(slug.current)]|order(publishedAt desc)[0...12]{  _id,  title,  slug,  body,  mainImage,  publishedAt,  "categories": coalesce(    categories[]->{      _id,      slug,      title    },    []  ),  author->{    name,    image  }}
+export type POSTS_QUERYResult = Array<{
+  _id: string;
+  title: string | null;
+  slug: Slug | null;
+  body: Array<{
+    children?: Array<{
+      marks?: Array<string>;
+      text?: string;
+      _type: "span";
+      _key: string;
+    }>;
+    style?: "blockquote" | "h1" | "h2" | "h3" | "h4" | "normal";
+    listItem?: "bullet";
+    markDefs?: Array<{
+      href?: string;
+      _type: "link";
+      _key: string;
+    }>;
+    level?: number;
+    _type: "block";
+    _key: string;
+  } | {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    alt?: string;
+    _type: "image";
+    _key: string;
+  }> | null;
+  mainImage: {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    alt?: string;
+    _type: "image";
+  } | null;
+  publishedAt: string | null;
+  categories: Array<{
+    _id: string;
+    slug: Slug | null;
+    title: string | null;
+  }> | Array<never>;
+  author: {
+    name: string | null;
+    image: {
+      asset?: {
+        _ref: string;
+        _type: "reference";
+        _weak?: boolean;
+        [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+      };
+      hotspot?: SanityImageHotspot;
+      crop?: SanityImageCrop;
+      _type: "image";
+    } | null;
+  } | null;
+}>;
+// Variable: POSTS_SLUGS_QUERY
+// Query: *[_type == "post" && defined(slug.current)]{   "slug": slug.current}
+export type POSTS_SLUGS_QUERYResult = Array<{
+  slug: string | null;
+}>;
+// Variable: POST_QUERY
+// Query: *[_type == "post" && slug.current == $slug][0]{  _id,  title,  body,  mainImage,  publishedAt,  "categories": coalesce(    categories[]->{      _id,      slug,      title    },    []  ),  author->{    name,    image  }}
+export type POST_QUERYResult = {
+  _id: string;
+  title: string | null;
+  body: Array<{
+    children?: Array<{
+      marks?: Array<string>;
+      text?: string;
+      _type: "span";
+      _key: string;
+    }>;
+    style?: "blockquote" | "h1" | "h2" | "h3" | "h4" | "normal";
+    listItem?: "bullet";
+    markDefs?: Array<{
+      href?: string;
+      _type: "link";
+      _key: string;
+    }>;
+    level?: number;
+    _type: "block";
+    _key: string;
+  } | {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    alt?: string;
+    _type: "image";
+    _key: string;
+  }> | null;
+  mainImage: {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    alt?: string;
+    _type: "image";
+  } | null;
+  publishedAt: string | null;
+  categories: Array<{
+    _id: string;
+    slug: Slug | null;
+    title: string | null;
+  }> | Array<never>;
+  author: {
+    name: string | null;
+    image: {
+      asset?: {
+        _ref: string;
+        _type: "reference";
+        _weak?: boolean;
+        [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+      };
+      hotspot?: SanityImageHotspot;
+      crop?: SanityImageCrop;
+      _type: "image";
+    } | null;
+  } | null;
+} | null;
+// Variable: AUDIOS_QUERY
+// Query: *[  _type == "audio"  && defined(slug.current)]{description,  _id,  'audio':audio.asset->url,  title,  slug,}
+export type AUDIOS_QUERYResult = Array<{
+  description: string | null;
+  _id: string;
+  audio: string | null;
+  title: string | null;
+  slug: Slug | null;
+}>;
+
+// Query TypeMap
+import "@sanity/client";
+declare module "@sanity/client" {
+  interface SanityQueries {
+    "*[_type == \"post\" && defined(slug.current)]|order(publishedAt desc)[0...12]{\n  _id,\n  title,\n  slug,\n  body,\n  mainImage,\n  publishedAt,\n  \"categories\": coalesce(\n    categories[]->{\n      _id,\n      slug,\n      title\n    },\n    []\n  ),\n  author->{\n    name,\n    image\n  }\n}": POSTS_QUERYResult;
+    "*[_type == \"post\" && defined(slug.current)]{ \n  \"slug\": slug.current\n}": POSTS_SLUGS_QUERYResult;
+    "*[_type == \"post\" && slug.current == $slug][0]{\n  _id,\n  title,\n  body,\n  mainImage,\n  publishedAt,\n  \"categories\": coalesce(\n    categories[]->{\n      _id,\n      slug,\n      title\n    },\n    []\n  ),\n  author->{\n    name,\n    image\n  }\n}": POST_QUERYResult;
+    "*[\n  _type == \"audio\"\n  && defined(slug.current)\n]{description,\n  _id,\n  'audio':audio.asset->url,\n  title,\n  slug,}": AUDIOS_QUERYResult;
+  }
+}
+</file>
+
+<file path="components/hero/carousel.tsx">
+"use client"; 
+
+import { useEffect, useRef } from "react";
+import Image from "next/image";
+
+const AutoPlayCarousel = () => {
+  const carouselRef = useRef<HTMLDivElement | null>(null);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      if (carouselRef.current) {
+        carouselRef.current.scrollBy({ left: 300, behavior: "smooth" });
+        
+        // If at the end, go back to the start
+        if (
+          carouselRef.current.scrollLeft + carouselRef.current.clientWidth >=
+          carouselRef.current.scrollWidth
+        ) {
+          carouselRef.current.scrollTo({ left: 0, behavior: "smooth" });
+        }
+      }
+    }, 3000); // Change slide every 3 seconds
+
+    return () => clearInterval(interval); // Cleanup on unmount
+  }, []);
+
+type User = {src:string,
+    id:number,
+    alt:string}
+
+const images : User[] = [
+    {
+        src:'/masjid.jpg',
+        id:1,
+        alt:'Masjid'
+    },
+    {
+        src:"/Qur'an.jpg",
+        id:2,
+        alt:"Qur'an"
+    },
+    {
+        src:"/sujud.jpg",
+        id:3,
+        alt:"sajdah"
+    },
+    {
+        src:"/Quran2.jpg",
+        id:4,
+        alt:"Al Qur'an"
+    },
+    {
+        src:"/lamp.jpg",
+        id:5,
+        alt:"praying lamp"
+    },
+    {
+        src:"/praying_mat.jpg",
+        id:6,
+        alt:"Praying mat"
+    },
+    {
+        src:"/men_at_mosque.jpg",
+        id:7,
+        alt:"Men at Masjid"
+    }
+]
+
+  return (
+    <div className="carousel rounded-box overflow-x-auto scroll-smooth flex" ref={carouselRef}>
+      
+      {images.map(
+        (image)=>(
+            <div  key={image.id} className="carousel-item">
+            <Image
+              className="w-auto h-auto " 
+              src={image.src}
+              alt={image.alt}
+            //   layout="responsive"
+              width={300}
+              height={150}
+            />
+            </div>
+        )
+      )}
+    </div>
+  );
+};
+
+export default AutoPlayCarousel;
+</file>
+
+<file path="app/page.tsx">
+import Hero from "@/components/hero/hero";
+import Items from "@/components/item/items";
+
+
+export default function Home() {
+  return (
+    <main>
+      <Hero/>
+      <Items/>
+    </main>
+  );
+}
+</file>
+
+<file path="components/card/card.tsx">
+import React from 'react'
+import Image from 'next/image'
+import Link from 'next/link'
+
+
+interface Article  {
+  title : string,
+  description: string,
+  src:string,
+  alt:string,
+  id: number,
+  bg: string,
+  url: string
+}
+
+const Card: React.FC<Article> = ({title, description, src, alt, id, bg, url}) => {
+  return(
+    <div key={id} className={`flex card lg:card-side mb-2 mr-2 ${bg} shadow-sm h-36`}>
+          <figure className='  basis-1/3 basis-1/3'>
+            <Image
+              className='hidden md:flex'
+              height={10}
+              width={100}
+              src={src}
+              alt={alt} />
+          </figure>
+          <div className=" basis-2/3 p-2 card-body">
+            <h2 className="card-title text-sm ">{title}</h2>
+            <p className="hidden text-xs lg:block">{description}</p>
+            <Link href={url} className="card-actions justify-end">
+              <button className="btn text-white hover:text-blue-500 hover:bg-gray-300 bg-blue-400 btn-xs btn-primary">Read</button>
+            </Link>
+          </div>
+    </div>
+  )  
+}
+
+export default Card
+</file>
+
+<file path="components/item/items.tsx">
+import MainCard from "../card/card2";
+import { ReactElement } from "react";
+import React from 'react'
+import { Pray, Salat, Quran, Hadith, Story, Crescent } from "../svg/crescent";
+
+const Items = () => {
+
+    type Items = {
+        id:number,
+        s_title:string,
+        b_title:string,
+        img:ReactElement,
+        alt:string,
+        bg:string,
+        url:string
+    }
+
+    const items:Items[] = [
+        {
+            id: 1,
+            s_title: 'Five Daily',
+            b_title: 'Prayers',
+            img: <Salat className="my-svg" width="100px" height="50px" />,
+            alt: 'salat',
+            bg:'bg-rose-100',
+            url:'/'
+        },
+        {
+            id: 2,
+            s_title: '99 Names of',
+            b_title: 'Allah',
+            img: <Crescent className="my-svg" width="100px" height="50px" />,
+            alt: 'salat',
+            bg:'bg-pink-100',
+            url:'/names-of-Allah'
+        },
+        {
+            id: 3,
+            s_title: 'All about',
+            b_title: "Al-Qur'an",
+            img: <Quran className="my-svg" width="100px" height="50px" />,
+            alt: 'salat',
+            bg:'bg-fuchsia-100',
+            url:'/'
+        },
+        {
+            id: 4,
+            s_title: 'Daily',
+            b_title: 'Dua & Dhikr',
+            img: <Pray className="my-svg" width="100px" height="50px" />,
+            alt: 'salat',
+            bg:'bg-purple-100',
+            url:'/'
+        },
+        {
+            id: 5,
+            s_title: 'Collection of',
+            b_title: 'Hadiths',
+            img: <Hadith className="my-svg" width="100px" height="50px" />,
+            alt: 'salat',
+            bg:'bg-violet-100',
+            url:'/'
+        },
+        {
+            id: 6,
+            s_title: 'Story of the',
+            b_title: 'Prophets',
+            img: <Story className="my-svg" width="100px" height="50px" />,
+            alt: 'salat',
+            bg:'bg-indigo-100',
+            url:'/'
+        },
+    ]
+  return (
+    <div className="grid grid-cols-3 sm:grid-cols-2 md:grid-cols-3 gap-4 px-4">
+        {items.map(item=>{
+           return(
+            <MainCard key={item.id}
+                      id={item.id} 
+                      s_title={item.s_title}
+                      b_title = {item.b_title}
+                      img = {item.img}
+                      bg={item.bg}
+                      alt={item.alt}
+                      url={item.url}
+                        />
+           )
+        })}
+    </div>
+  )
+}
+
+export default Items
+</file>
+
+<file path="components/navbar/navbar.tsx">
+import Link from "next/link";
+import Image from "next/image";
+
+export default function Navbar (){
+    return(
+    <header className="bg-blue-50 ">
+        {/* ----------------------Title-----------------------------------  */}
+        <div className="text-center ">
+            <Link href='/' className="pt-2 hover:text-rose-900 text-blue-950 text-3xl">
+                Muslim Hub
+            </Link>
+            <h2><strong>Home for striving muslims</strong></h2>
+        </div>
+        
+
+    <div className="navbar bg-blue-100 shadow-sm">
+
+      <div className="navbar-start">
+        <Link href='/'>
+          <Image src='/new-logo.png'
+                            alt="MH Logo"
+                            width={62} 
+                            height={15} 
+                            priority 
+                            className="h-auto w-auto rounded-full"
+                            
+                            />
+        </Link>
+        <div className="dropdown ">
+          <div tabIndex={0} role="button" className="btn btn-ghost btn-circle">
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"> <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h7" /> </svg>
+          </div>
+          <ul
+            tabIndex={0}
+            className="menu menu-lg dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
+            <li><a>Homepage</a></li>
+            <li><a>Portfolio</a></li>
+            <li><a>About</a></li>
+          </ul>
+          </div>
+        </div>
+
+
+
+
+        <div className="navbar-center bg-blue-150 hidden lg:flex shadow-lg  rounded-lg">
+          <ul className="menu menu-horizontal  px-4 space-x-6 text-lg font-semibold text-gray-700">
+              <li><Link href="/" className="hover:bg-blue-150 hover:text-rose-500">Home</Link></li>
+              <li><Link href="/" className="hover:text-blue-500">Dua</Link></li>
+              <li><Link href="/" className="hover:text-blue-500">Al-Qur&apos;an</Link></li>
+              <li><Link href="/" className="hover:text-blue-500">Hadith</Link></li>
+              <li><Link href="/" className="hover:text-blue-500">Blog</Link></li>
+              <li><Link href="/" className="hover:text-blue-500">Vendor</Link></li>
+              <li><Link href="/" className="hover:text-blue-500">Donation</Link></li>
+          </ul>
+        </div>
+
+
+
+        <div className="navbar-end">
+            <Link href='/'>
+                <button className="btn btn-ghost btn-circle">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"> <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /> </svg>
+                </button>
+            </Link>
+        </div>
+      
+    </div>
+</header>
+    )
+};
+</file>
+
+<file path="package.json">
+{
+  "name": "muslim_hub",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev --turbopack",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "predev": "npm run typegen",
+    "prebuild": "npm run typegen",
+    "typegen": "sanity schema extract --path=./sanity/extract.json && sanity typegen generate"
+  },
+  "dependencies": {
+    "@sanity/client": "^6.28.3",
+    "@sanity/code-input": "^5.1.2",
+    "@sanity/icons": "^3.7.0",
+    "@sanity/image-url": "^1.1.0",
+    "@sanity/vision": "^3.78.1",
+    "axios": "^1.8.4",
+    "dayjs": "^1.11.13",
+    "next": "15.2.0",
+    "next-sanity": "^9.9.0",
+    "react": "19.0.0",
+    "react-dom": "19.0.0",
+    "react-syntax-highlighter": "^15.6.1",
+    "sanity": "^3.78.1",
+    "styled-components": "^6.1.15"
+  },
+  "packageManager": "npm@10.5.2",
+  "overrides": {
+    "react": "$react",
+    "react-dom": "$react-dom"
+  },
+  "devDependencies": {
+    "@eslint/eslintrc": "^3",
+    "@tailwindcss/postcss": "^4",
+    "@tailwindcss/typography": "^0.5.16",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "@types/react-syntax-highlighter": "^15.5.13",
+    "daisyui": "^5.0.0",
+    "eslint": "^9",
+    "eslint-config-next": "15.2.0",
+    "tailwindcss": "^4",
+    "typescript": "^5"
+  }
+}
+</file>
+
+<file path="app/layout.tsx">
+import type { Metadata } from "next";
+import { Geist, Geist_Mono } from "next/font/google";
+import "./globals.css";
+import Navbar from "@/components/navbar/navbar";
+// import { draftMode } from "next/headers";
+// import { VisualEditing } from "next-sanity";
+// import { DisableDraftMode } from "@/components/draft-mode/DisableDraftMode";
+
+import { SanityLive } from "@/sanity/lib/live";
+
+const geistSans = Geist({
+  variable: "--font-geist-sans",
+  subsets: ["latin"],
+});
+
+const geistMono = Geist_Mono({
+  variable: "--font-geist-mono",
+  subsets: ["latin"],
+});
+
+export const metadata: Metadata = {
+  title: "Muslim Hub",
+  description: "Home for striving muslims",
+};
+
+export default function RootLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
+  return (
+    <html lang="en">
+      <body
+        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+      > 
+        <Navbar/>
+        {children}
+        <SanityLive/>
+        {/* {(await draftMode()).isEnabled && (
+        <>
+          <DisableDraftMode />
+          <VisualEditing />
+        </>
+        )} */}
+      </body>
+    </html>
+  );
+}
+</file>
+
+<file path="components/hero/hero.tsx">
+"use client"
+import AutoPlayCarousel from "./carousel";
+import Card from "../card/card";
+
+import { useState, useEffect } from 'react';
+
+type Article = {
+    title : string,
+    description: string,
+    src:string,
+    alt:string,
+    id: number,
+    bg: string,
+    url: string
+}
+
+const articles : Article[] = [{
+  title : 'Ramadan🌙: The Month of Transformation',
+  description : "Ramadan is a time of immense blessings, self-improvement, and deepening faith.  🌙✨",
+  src:'/ramadan-hero.png',
+  alt:'Ramadan',
+  id: 1,
+  bg:'bg-fuchsia-50',
+  url: '/pillars-of-islam/ramadan'
+},
+{
+  title : 'Zakat💛: Purifying Wealth, Elevating Souls',
+  description : "What if true wealth wasn’t about how much you keep, but how much you give?🤲✨",
+  src:'/zakat-hero.png',
+  alt:'zakat',
+  id: 2,
+  bg:'bg-pink-50',
+  url: '/pillars-of-islam/zakat'
+},
+{
+    title :'Shahada☝️: The Foundation of Faith',
+    description : "The testimony that there is no god but Allah, and Muhammad (ﷺ) is His Messenger.🤲✨",
+    src:'/shahada-hero.jpg',
+    alt:'shahada',
+    id: 3,
+    bg:'bg-violet-50',
+    url: '/pillars-of-islam/shahada'
+  },
+{
+    title : 'Salat🕋: The Daily Connection with Allah',
+    description : "It’s more than just movements; it’s a spiritual recharge, a moment of peace in a busy world.🤲✨",
+    src:'/salat-hero.jpg',
+    alt:'salat',
+    id: 4,
+    bg:'bg-purple-50',
+    url: '/pillars-of-islam/salat'
+  },  
+{
+    title : 'Hajj🕋: The Journey of a Lifetime',
+    description : "Standing among millions, with no status or wealth separating you—just you and Allah.🤲✨",
+    src:'/hajj-hero.png',
+    alt:'hajj',
+    id: 5,
+    bg:'bg-rose-50',
+  url: '/pillars-of-islam/hajj'
+  }
+]
+
+export default function Hero (){
+
+
+    const [displayedArticles, setDisplayedArticles] = useState<Article[]>([]);
+
+  // Function to shuffle and select 3 random articles
+  const shuffleArticles = () => {
+    const shuffled = [...articles].sort(() => 0.5 - Math.random()); // Randomize array
+    setDisplayedArticles(shuffled.slice(0, 3)); // Pick first 3
+  };
+
+  useEffect(() => {
+    shuffleArticles(); // Initially select articles
+
+    const interval = setInterval(() => {
+      shuffleArticles(); // Shuffle articles every 5 seconds
+    }, 10000);
+
+    return () => clearInterval(interval); // Cleanup on unmount
+        }, []);
+
+    return(
+        <section className="flex p-5">
+            <aside className=" hidden lg:block basis-1/3">
+                <h3 className="mb-2 mr-2 text-center text-lg bg-blue-100 rounded-sm">Pillars of Islam</h3>
+                {displayedArticles.map(article=>(
+                    <Card title={article.title} 
+                          description={article.description}
+                          src={article.src}
+                          alt={article.alt}
+                          key={article.id}
+                          id={article.id}
+                          bg={article.bg}
+                          url={article.url} />
+                ))}
+            </aside>
+            <aside className="basis-4/4">
+                <AutoPlayCarousel/>
+            </aside>
+        </section>
+    );
+};
+</file>
+
+</files>
