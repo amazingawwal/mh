@@ -7,7 +7,9 @@ type Props = {
   label?: string;
 };
 
-export default function AudioPlayer({ src, label }: Props) {
+export default function AudioPlayer({ src, 
+    // label 
+}: Props) {
   const audioRef = useRef<HTMLAudioElement>(null);
   const [playing, setPlaying] = useState(false);
   const [progress, setProgress] = useState(0);

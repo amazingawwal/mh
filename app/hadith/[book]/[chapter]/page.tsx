@@ -36,7 +36,10 @@ export default async function HadithChapterPage({ params }: Props) {
     notFound();
   }
 
-  const { hadiths, chapter, metadata: bookMeta } = data;
+  const { hadiths, chapter, 
+    // metadata: bookMeta 
+} 
+    = data;
   const prevChapter = chapterNo > 1 ? chapterNo - 1 : null;
   const nextChapter = chapterNo < book.totalChapters ? chapterNo + 1 : null;
 
@@ -157,7 +160,7 @@ function HadithCard({
 
 function ChapterNav({
   bookId,
-  bookName,
+//   bookName,
   chapterNo,
   totalChapters,
   prevChapter,
