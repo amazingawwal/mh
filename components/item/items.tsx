@@ -144,7 +144,7 @@ const Items = () => {
             img: <Pray className="my-svg" width="100px" height="50px" />,
             alt: 'salat',
             bg:'bg-purple-100',
-            url:'/'
+            url:'/dua'
         },
         {
             id: 5,
