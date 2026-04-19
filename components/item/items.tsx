@@ -117,7 +117,7 @@ const Items = () => {
             img: <Salat className="my-svg" width="100px" height="50px" />,
             alt: 'salat',
             bg:'bg-rose-100',
-            url:'/'
+            url:'/prayers'
         },
         {
             id: 2,
@@ -135,7 +135,7 @@ const Items = () => {
             img: <Quran className="my-svg" width="100px" height="50px" />,
             alt: 'salat',
             bg:'bg-fuchsia-100',
-            url:'/'
+            url:'/quran'
         },
         {
             id: 4,
@@ -153,7 +153,7 @@ const Items = () => {
             img: <Hadith className="my-svg" width="100px" height="50px" />,
             alt: 'salat',
             bg:'bg-violet-100',
-            url:'/'
+            url:'/hadith'
         },
         {
             id: 6,
@@ -162,7 +162,7 @@ const Items = () => {
             img: <Story className="my-svg" width="100px" height="50px" />,
             alt: 'salat',
             bg:'bg-indigo-100',
-            url:'/'
+            url:'/audio'
         },
     ]
   return (
