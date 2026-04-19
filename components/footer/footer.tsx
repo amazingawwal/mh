@@ -15,8 +15,8 @@ const footerLinks = [
     links: [
       { label: "Dua & Dhikr", href: "/dua" },
       { label: "Five Daily Prayers", href: "/prayers" },
-      { label: "Audio", href: "/audio" },
-      { label: "Story of the Prophets", href: "/prophets" },
+    //   { label: "Audio", href: "/audio" },
+      { label: "Story of the Prophets", href: "/audio" },
     ],
   },
 ];
